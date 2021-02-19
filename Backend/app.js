@@ -9,6 +9,15 @@ const cors = require("cors");
 const chalk = require('chalk');
 
 
+
+//Middlewares
+app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(cors());
+
+
+
+
 app.get('/', (req, res) => {
     res.send();
 });

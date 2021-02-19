@@ -53,3 +53,17 @@ exports.deleteCategory = (req, res) => {
         })
     });
 }
+
+
+exports.getallCategory = (req, res) => {
+    Category.find({}, (err, done) => {
+        if (err) {
+            return res.status(400).json({
+                err: "error category"
+            })
+        }
+        return res.status(400).json({
+            msg: done
+        })
+    })
+}

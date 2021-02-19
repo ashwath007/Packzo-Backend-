@@ -1,7 +1,10 @@
 const express = require('express');
-const { createCategory, updateCategory, deleteCategory } = require('../controllers/category');
+const { createCategory, updateCategory, deleteCategory, getallCategory } = require('../controllers/category');
 const router = express.Router();
 
+
+//Get All Category
+router.get('/admin/category/getallcategory', getallCategory);
 
 
 //Create category

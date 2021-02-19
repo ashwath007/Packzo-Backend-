@@ -13,3 +13,43 @@ exports.createCategory = (req, res) => {
         res.json({ category });
     });
 };
+
+
+exports.updateCategory = (req, res) => {
+    console.log("Update category");
+    const categoryId = req.params.categoryId;
+    console.log(categoryId);
+    Category.findByIdAndUpdate(req.params.categoryId, req.body, (err, docs) => {
+        if (err) {
+            return res.status(400).json({
+                err: "counld't finnf the ID"
+            })
+        }
+        docs.name = req.body.name;
+        docs.description = req.body.description;
+        docs.save((err, done) => {
+            if (err) {
+                return res.status(400).json({
+                    err: "counld't save the category"
+                })
+            }
+            return res.status(400).json({
+                msg: done
+            })
+        });
+    });
+}
+
+
+exports.deleteCategory = (req, res) => {
+    Category.findByIdAndDelete(req.params.categoryId, (err, done) => {
+        if (err) {
+            return res.status(400).json({
+                err: "counld't delete"
+            })
+        }
+        return res.status(400).json({
+            msg: done
+        })
+    });
+}

@@ -50,6 +50,8 @@ app.get('/', (req, res) => {
 //Admin Routes
 app.use("/api", authRoutes);
 app.use("/api", categoryRoutes);
+app.use("/api", productRoutes);
+
 
 
 app.listen(port, () => {

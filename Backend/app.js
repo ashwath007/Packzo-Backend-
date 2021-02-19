@@ -1,6 +1,11 @@
-const express = require('express');
-const app = express();
+require("dotenv").config();
 
+const mongoose = require("mongoose");
+const express = require("express");
+const app = express();
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
 const chalk = require('chalk');
 
 

@@ -9,6 +9,10 @@ const cors = require("cors");
 const chalk = require('chalk');
 
 
+//My routes
+const authRoutes = require("./routes/auth");
+const categoryRoutes = require("./routes/category");
+
 //PORT
 const port = process.env.PORT || 8000;
 
@@ -32,15 +36,20 @@ mongoose
 
 
 
-
+//Task one focusing on Admin
 
 app.get('/', (req, res) => {
-    res.send();
+    // res.send();
 });
 
 
 
 
+//Admin Routes
+app.use("/api", authRoutes);
+app.use("/api", categoryRoutes);
+
+
 app.listen(port, () => {
-    console.log(chalk.red('Hi ', chalk.underline('Server Started') + '!'));
+    console.log(chalk.red('Hi ', chalk.underline('Server Started at' + port) + '!'));
 });

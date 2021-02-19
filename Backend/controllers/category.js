@@ -63,7 +63,7 @@ exports.getallCategory = (req, res) => {
             })
         }
         return res.status(400).json({
-            msg: done
+            categories: done
         })
     })
 }

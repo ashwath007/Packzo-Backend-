@@ -12,6 +12,8 @@ const chalk = require('chalk');
 //My routes
 const authRoutes = require("./routes/auth");
 const categoryRoutes = require("./routes/category");
+const productRoutes = require("./routes/product");
+
 
 //PORT
 const port = process.env.PORT || 8000;

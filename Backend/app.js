@@ -9,12 +9,14 @@ const cors = require("cors");
 const chalk = require('chalk');
 
 
+//PORT
+const port = process.env.PORT || 8000;
+
 
 //Middlewares
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
-
 
 //DB Connection
 mongoose
@@ -28,12 +30,15 @@ mongoose
         console.log("DB CONNECTED");
     });
 
+
+
+
+
 app.get('/', (req, res) => {
     res.send();
 });
 
-//PORT
-const port = process.env.PORT || 8000;
+
 
 
 app.listen(port, () => {

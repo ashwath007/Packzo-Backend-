@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const { stringify } = require('uuid');
-
+const { ObjectId } = mongoose.Schema;
 
 
 const storeSchema = new mongoose.Schema({
@@ -28,7 +28,11 @@ const storeSchema = new mongoose.Schema({
     photo: {
         data: Buffer,
         contentType: String
-    }
+    },
+    product: {
+        type: [ObjectId],
+        ref: "Product"
+    },
 }, { timestamps: true });
 
 

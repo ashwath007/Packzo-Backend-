@@ -3,6 +3,36 @@ const Store = require('../models/store');
 const formidable = require("formidable");
 const _ = require("lodash");
 const fs = require("fs");
+
+
+
+exports.getProductById = (req, res, next, id) => {
+    Product.findById(id)
+        .populate("category")
+        .exec((err, product) => {
+            if (err) {
+                return res.status(400).json({
+                    error: "Product not found"
+                });
+            }
+            req.product = product;
+            next();
+        });
+};
+
+exports.getallProduct = (req, res) => {
+    Product.find({}, (err, all) => {
+        if (err) {
+            return res.status(400).json({
+                error: err
+            })
+        }
+        return res.json({
+            products: all
+        })
+    });
+};
+
 exports.createProduct = (req, res) => {
 
     console.log("Creating product")
@@ -55,7 +85,7 @@ exports.createProduct = (req, res) => {
                     });
                 }
                 console.log(done);
-                done.product = product._id;
+                done.product.append(product._id);
                 done.save((er, ok) => {
                     if (err) {
                         res.status(400).json({

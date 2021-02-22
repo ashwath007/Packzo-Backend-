@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { stringify } = require('uuid');
 
 
 
@@ -16,23 +17,22 @@ const storeSchema = new mongoose.Schema({
         required: true,
         maxlength: 200
     },
-    location: {
-        type: {
-            type: String, // Don't do `{ location: { type: String } }`
-            enum: ['Point'], // 'location.type' must be 'Point'
-            required: true
-        },
-        coordinates: {
-            type: [Number],
-            required: true
-        }
-    },
+    // location: {
+    //     type: {
+    //         type: String, // Don't do `{ location: { type: String } }`
+    //         enum: ['Point'], // 'location.type' must be 'Point'
+    //         required: true
+    //     },
+    //     coordinates: {
+    //         type: [Number],
+    //         required: true
+    //     }
+    // },
     stype: {
-        type: ObjectId,
-        ref: "Category",
+        type: String,
         required: true
     },
-    sphoto: {
+    photo: {
         data: Buffer,
         contentType: String
     }

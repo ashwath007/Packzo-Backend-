@@ -17,17 +17,17 @@ const storeSchema = new mongoose.Schema({
         required: true,
         maxlength: 200
     },
-    // location: {
-    //     type: {
-    //         type: String, // Don't do `{ location: { type: String } }`
-    //         enum: ['Point'], // 'location.type' must be 'Point'
-    //         required: true
-    //     },
-    //     coordinates: {
-    //         type: [Number],
-    //         required: true
-    //     }
-    // },
+    location: {
+        type: {
+            type: String, // Don't do `{ location: { type: String } }`
+            enum: ['Point'], // 'location.type' must be 'Point'
+            required: true
+        },
+        coordinates: {
+            type: [Number],
+            required: true
+        }
+    },
     stype: {
         type: String,
         required: true

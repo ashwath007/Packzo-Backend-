@@ -1,7 +1,7 @@
 const express = require('express');
-const { createProduct, getallProduct, updateProduct } = require('../controllers/product');
+const { createProduct, getallProduct, updateProduct, getProductById } = require('../controllers/product');
 const router = express.Router();
-
+router.param("productId", getProductById);
 
 
 //Create a product for STORE

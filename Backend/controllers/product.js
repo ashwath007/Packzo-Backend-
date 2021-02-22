@@ -102,3 +102,8 @@ exports.createProduct = (req, res) => {
     });
 
 }
+
+
+exports.updateProduct = (req, res) => {
+    console.log(req.params.productId);
+}

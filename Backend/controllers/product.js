@@ -160,5 +160,15 @@ exports.updateProduct = (req, res) => {
 
 
 exports.deleteProduct = (req, res) => {
-
+    console.log(req.params.productId);
+    Product.findByIdAndDelete(req.params.productId, (err, done) => {
+        if (err) {
+            res.status(400).json({
+                error: "Delection of product failed"
+            });
+        }
+        return res.json({
+            status: 'Deleted Sucessfuly'
+        })
+    });
 }

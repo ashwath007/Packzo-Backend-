@@ -1,5 +1,5 @@
 const express = require('express');
-const { createProduct, getallProduct, updateProduct, getProductById, deleteProduct } = require('../controllers/product');
+const { createProduct, getallProduct, updateProduct, getProductById, deleteProduct, getAllUniqueCategories } = require('../controllers/product');
 const router = express.Router();
 router.param("productId", getProductById);
 
@@ -9,5 +9,7 @@ router.post('/admin/product/createproduct/:storeId', createProduct);
 router.get('/admin/product/getallProducts', getallProduct);
 router.put('/admin/product/updateProducts/:productId', updateProduct);
 router.delete('/admin/product/deleteProducts/:productId', deleteProduct);
+router.delete('/admin/product/deleteProducts/:productId', deleteProduct);
+router.get("/admin/product/getcategoryProducts", getAllUniqueCategories);
 
 module.exports = router;

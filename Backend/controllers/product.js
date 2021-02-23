@@ -97,7 +97,7 @@ exports.createProduct = (req, res) => {
                     });
                 }
                 console.log(done);
-                done.product.append(product._id);
+                done.product.push(product._id);
                 done.save((er, ok) => {
                     if (err) {
                         res.status(400).json({
@@ -172,3 +172,15 @@ exports.deleteProduct = (req, res) => {
         })
     });
 }
+
+
+exports.getAllUniqueCategories = (req, res) => {
+    Product.distinct("category", {}, (err, category) => {
+        if (err) {
+            return res.status(400).json({
+                error: "NO category found"
+            });
+        }
+        res.json(category);
+    });
+};

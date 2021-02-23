@@ -156,3 +156,9 @@ exports.updateProduct = (req, res) => {
         });
     });
 }
+
+
+
+exports.deleteProduct = (req, res) => {
+
+}

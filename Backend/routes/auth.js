@@ -4,7 +4,9 @@ const { adminSignup } = require('../controllers/auth');
 
 const router = express.Router();
 
-router.post('/admin', adminSignup);
+
+// Here we are having single ADMIN to handle all the Admin operations
+router.post('/admin/signIn', adminSignup);
 
 
 

@@ -6,15 +6,7 @@ const User = require('../models/user');
 
 exports.adminSignup = (req, res) => {
     console.log(req.body);
-    const user = new User(req.body);
-    user.save((err,done)=>{
-        if(err){
-            return res.status(400).json({
-                error:err
-            })
-        }
-        
-    });
+    
 }
 
 

@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 const crypto = require("crypto");
-const uuidv1 = require("uuid/v1");
+const { v4: uuidv4 } = require('uuid');
 const { StringDecoder } = require("string_decoder");
 
 

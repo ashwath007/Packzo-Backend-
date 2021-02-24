@@ -24,6 +24,11 @@ exports.updateCategory = (req, res) => {
                 err: "counld't finnf the ID"
             })
         }
+        if (docs == null) {
+            return res.status(400).json({
+                err: "counld't find the Category"
+            })
+        }
         docs.name = req.body.name;
         docs.description = req.body.description;
         docs.save((err, done) => {

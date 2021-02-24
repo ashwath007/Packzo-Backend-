@@ -2,14 +2,29 @@ require("dotenv").config();
 const { check, validationResult } = require("express-validator");
 var jwt = require("jsonwebtoken");
 var expressJwt = require("express-jwt");
+
 const User = require('../models/user');
+const Passcode = require('../models/adminpasscode');
 
 exports.adminSignup = (req, res) => {
-    console.log(req.body);
-    
+    console.log(req.body);  
+    const passCode = new Passcode(req.body);
+    passCode.save((err,done)=>{
+        if(err){
+            return res.status(400).json({
+                error:err
+            })
+        }
+        return res.json({
+            msg:done
+        })        
+    });
 }
 
+exports.setPasscode = (req,res) => {
+    console.log(req.body);
 
+}
 
 
 exports.signin = (req, res) => {

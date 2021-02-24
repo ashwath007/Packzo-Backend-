@@ -62,3 +62,13 @@ exports.isAuthenticated = (req, res, next) => {
     });
 
 };
+
+
+
+//Clearing cookie
+exports.signOut = (req, res) => {
+    res.clearCookie("adminId");
+    res.json({
+        message: "User signout successfully"
+    });
+}

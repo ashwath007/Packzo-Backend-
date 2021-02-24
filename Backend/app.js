@@ -60,5 +60,5 @@ app.use("/api", userRoutes);
 
 
 app.listen(port, () => {
-    console.log(chalk.red('Hi ', chalk.underline('Server Started at' + port) + '!'));
+    console.log(chalk.red('Hi ', chalk.underline('Server Started at : ' + port) + '!'));
 });

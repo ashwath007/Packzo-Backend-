@@ -44,13 +44,15 @@ exports.setPasscode = (req, res) => {
 //Middleware for Admin
 exports.isAuthenticated = (req, res, next) => {
     let checker = req.params.adminId;
-    Passcode.findById(req.params.adminId, (err, done) => {
-        if (!err) {
+    console.log(typeof(checker));
+    Passcode.findOne({ code: checker }, (err, done) => {
+        console.log(done);
+        if (err) {
             return res.status(403).json({
-                error: "Can't find the correct AdminID"
+                error: err
             });
         }
-        if (!done) {
+        if (done == null) {
             return res.status(403).json({
                 error: "ACCESS DENIED"
             });

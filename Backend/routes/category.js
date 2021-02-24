@@ -8,15 +8,15 @@ router.get('/admin/category/getallcategory', getallCategory);
 
 
 //Create category
-router.post('/admin/category/createcategory', createCategory);
+router.post('/admin/:adminId/category/createcategory', createCategory);
 //Edit category
 router.put(
-    "/admin/category/:categoryId/edit",
+    "/admin/:adminId/category/:categoryId/edit",
     updateCategory
 );
 //Delete category
 router.delete(
-    "/admin/category/:categoryId/delete",
+    "/admin/:adminId/category/:categoryId/delete",
     deleteCategory
 );
 

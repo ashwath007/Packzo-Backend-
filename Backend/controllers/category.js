@@ -1,6 +1,5 @@
 const Category = require("../models/category");
 
-
 exports.createCategory = (req, res) => {
 
     const category = new Category(req.body);

@@ -31,10 +31,32 @@ exports.setPasscode = (req, res) => {
                 })
             }
             return res.json({
-                secret: okok.code
+                adminId: okok.code
             })
 
         });
 
     });
 }
+
+
+
+//Middleware for Admin
+exports.isAuthenticated = (req, res, next) => {
+    let checker = req.params.adminId;
+    Passcode.findById(req.params.adminId, (err, done) => {
+        if (!err) {
+            return res.status(403).json({
+                error: "Can't find the correct AdminID"
+            });
+        }
+        if (!done) {
+            return res.status(403).json({
+                error: "ACCESS DENIED"
+            });
+        }
+        next();
+
+    });
+
+};

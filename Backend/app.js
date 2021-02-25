@@ -16,6 +16,11 @@ const productRoutes = require("./routes/product");
 const storeRoutes = require("./routes/store");
 const userRoutes = require("./routes/user");
 
+// To Handle Location
+
+const locationRoutes = require("./routes/location");
+
+
 //PORT
 const port = process.env.PORT || 8000;
 
@@ -54,6 +59,9 @@ app.use("/api", categoryRoutes);
 app.use("/api", productRoutes);
 app.use("/api", storeRoutes);
 app.use("/api", userRoutes);
+
+app.use("/api", locationRoutes);
+
 
 
 

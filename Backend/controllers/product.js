@@ -17,7 +17,6 @@ exports.getProductById = (req, res, next, id) => {
             next();
         });
 };
-
 exports.getProductById = (req, res, next, id) => {
     Product.findById(id)
         .populate("category")
@@ -44,13 +43,10 @@ exports.getallProduct = (req, res) => {
         })
     });
 };
-
 exports.createProduct = (req, res) => {
-
     console.log("Creating product")
     let form = new formidable.IncomingForm();
     form.keepExtensions = true;
-
     form.parse(req, (err, fields, file) => {
         console.log("fields ", fields)
 
@@ -61,13 +57,11 @@ exports.createProduct = (req, res) => {
         }
         //destructure the fields
         const { name, description, price, category, stock } = fields;
-
         if (!name || !description || !price || !category || !stock) {
             return res.status(400).json({
                 error: "Please include all fields"
             });
         }
-
         let product = new Product(fields);
 
         //handle file here
@@ -112,10 +106,7 @@ exports.createProduct = (req, res) => {
             })
         });
     });
-
 }
-
-
 exports.updateProduct = (req, res) => {
     console.log(req.params.productId);
 

@@ -21,6 +21,9 @@ const storeSchema = new mongoose.Schema({
         type: { type: String },
         coordinates: []
     },
+    address: {
+        type: String
+    },
     stype: {
         type: String,
         required: true

@@ -7,7 +7,7 @@ exports.getAllLocation = (req, res) => {
                 error: err
             })
         }
-        return res.json({
+        return res.json({ // Need to work on Location stuff
             locations: allLoc.locations,
             // stores: allLoc
         })

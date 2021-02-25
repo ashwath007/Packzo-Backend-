@@ -8,20 +8,53 @@ exports.userSignup = (req, res) => {
 
     // TODO 1 : User CODE 
     // TODO 2 : User verifyed or not, Location
-    const CODE = randomizr.range(100000, 9999999)
-    console.log(CODE);
-    // user.save((err, done) => {
-    //     if (err) {
-    //         return res.status(404).json({
-    //             error: err
-    //         })
-    //     }
+
+    user.save((err, done) => {
+        if (err) {
+            return res.status(404).json({
+                error: err
+            })
+        }
+        const CODE = randomizr.range(100000, 9999999)
+        console.log(CODE);
+        done.code = CODE;
+        done.save(function(err, codeDone) {
+            if (err) {
+                return res.status(404).json({
+                    error: err
+                })
+            }
+
+            // Here we are sending OTP ie.,( CODE ) to the user though SMS
+            // Loading Next Page
+            return res.json({
+                msg: codeDone
+            })
+
+        });
 
 
-    //     //refer: https://github.com/ashwath007/hotel/blob/main/backend/controllers/auth.js
+        //refer: https://github.com/ashwath007/hotel/blob/main/backend/controllers/auth.js
 
-    // });
+    });
 
 
 
+}
+
+
+
+
+exports.userSignin = (req, res) => {
+
+    console.log(req.body);
+
+    User.findOne({ phone: req.body.phone }, (err, done) => {
+        if (err) {
+            return res.status(404).json({
+                error: err
+            })
+        }
+        console.log(done);
+    });
 }

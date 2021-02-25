@@ -29,10 +29,16 @@ exports.userVerify = (req, res) => {
                     })
                 }
 
+
+                const token = jwt.sign({ _id: gotUser._id }, process.env.SECRET);
+                res.cookie("token", token, { expire: new Date() + 99999 });
+                const { _id, name, role } = gotUser;
+                return res.json({
+                    user: { _id, name, role }
+                })
+
             });
-            return res.json({
-                msg: gotUser
-            })
+
         }
     });
 }

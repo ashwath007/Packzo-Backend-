@@ -15,23 +15,47 @@ exports.userSignup = (req, res) => {
                 error: err
             })
         }
-        const CODE = randomizr.range(100000, 9999999)
-        console.log(CODE);
-        done.code = CODE;
-        done.save(function(err, codeDone) {
-            if (err) {
-                return res.status(404).json({
-                    error: err
-                })
+        const CODE = randomizr.range(100000, 9999999);
+        User.findOne({ code: CODE }, (err, got) => {
+            if (got == null) {
+                console.log(CODE);
+                done.code = CODE;
+                done.save(function(err, codeDone) {
+                    if (err) {
+                        return res.status(404).json({
+                            error: err
+                        })
+                    }
+
+                    // Here we are sending OTP ie.,( CODE ) to the user though SMS
+                    // Loading Next Page
+                    return res.json({
+                        msg: codeDone
+                    })
+
+                });
+            } else {
+                const CODE = randomizr.range(100000, 9999999);
+
+                console.log(CODE);
+                done.code = CODE;
+                done.save(function(err, codeDone) {
+                    if (err) {
+                        return res.status(404).json({
+                            error: err
+                        })
+                    }
+
+                    // Here we are sending OTP ie.,( CODE ) to the user though SMS
+                    // Loading Next Page
+                    return res.json({
+                        msg: codeDone
+                    })
+
+                });
             }
-
-            // Here we are sending OTP ie.,( CODE ) to the user though SMS
-            // Loading Next Page
-            return res.json({
-                msg: codeDone
-            })
-
         });
+
 
 
         //refer: https://github.com/ashwath007/hotel/blob/main/backend/controllers/auth.js
@@ -55,6 +79,8 @@ exports.userSignin = (req, res) => {
                 error: err
             })
         }
-        console.log(done);
+
+
+
     });
 }

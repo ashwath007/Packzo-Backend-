@@ -49,8 +49,10 @@ exports.userSignup = (req, res) => {
                     // Here we are sending OTP ie.,( CODE ) to the user though SMS
                     // Loading Next Page
                     return res.json({
-                        msg: codeDone
-                    })
+                        // msg: codeDone,
+                        msg: "Navigate to Verifycation page"
+
+                    });
 
                 });
             }

@@ -21,7 +21,15 @@ exports.userVerify = (req, res) => {
         } else {
 
             // Here we need to generate JWT and sent it 
+            gotUser.verifyed = true;
+            gotUser.save((err, verCode) => {
+                if (gotUser == null) {
+                    return res.json({
+                        msg: "Please enter the correct code"
+                    })
+                }
 
+            });
             return res.json({
                 msg: gotUser
             })

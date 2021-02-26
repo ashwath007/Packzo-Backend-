@@ -89,3 +89,7 @@ exports.editStore = (req, res) => {
 
 
 }
+
+exports.deleteStore = (req, res) => {
+
+}

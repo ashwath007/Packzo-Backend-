@@ -6,12 +6,8 @@ const fs = require("fs");
 
 exports.createStore = (req, res) => {
     console.log('createStore');
-
-
-
     let form = new formidable.IncomingForm();
     form.keepExtensions = true;
-
     form.parse(req, (err, fields, file) => {
         console.log("fields ", fields)
         if (err) {
@@ -27,9 +23,7 @@ exports.createStore = (req, res) => {
                 error: "Please include all fields"
             });
         }
-
         let product = new Store(fields);
-
         //handle file here
         if (file.photo) {
             if (file.photo.size > 3000000) {
@@ -41,7 +35,6 @@ exports.createStore = (req, res) => {
             product.photo.contentType = file.photo.type;
         }
         // console.log(product);
-
         //save to the DB
         product.save((err, product) => {
             if (err) {
@@ -51,6 +44,20 @@ exports.createStore = (req, res) => {
             }
             res.json(product);
         });
-
     })
 };
+
+
+exports.editStore = (req, res) => {
+    console.log(req.body);
+    Store.findByIdAndUpdate(req.params.adminId, req.body, (err, done) => {
+        if (err) {
+            return res.status(404).json({
+                error: err
+            })
+        }
+        return res.json({
+            updated: "Sucessfuly updated"
+        })
+    });
+}

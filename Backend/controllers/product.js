@@ -123,13 +123,18 @@ exports.updateProduct = (req, res) => {
         //updation code
         let product = req.product;
         product = _.extend(product, fields);
-
-        //handle file here
+        console.log(product)
+            //handle file here
         if (file.photo) {
             if (file.photo.size > 3000000) {
                 return res.status(400).json({
                     error: "File size too big!"
                 });
+            }
+            if (product == undefined) {
+                return res.json({
+                    msg: "Product does't exist"
+                })
             }
             product.photo.data = fs.readFileSync(file.photo.path);
             product.photo.contentType = file.photo.type;

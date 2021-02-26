@@ -180,3 +180,8 @@ exports.getAllUniqueCategories = (req, res) => {
         res.json(category);
     });
 };
+
+exports.getAllproducts = (req, res) => {
+    console.log(req.params.storeId);
+    // Here we need to send all Product Information based on the Stores
+}

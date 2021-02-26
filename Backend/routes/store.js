@@ -1,5 +1,5 @@
 const express = require('express');
-const { createStore, editStore, deleteStore } = require('../controllers/store');
+const { createStore, editStore, deleteStore, getAllStores } = require('../controllers/store');
 const router = express.Router();
 const { isAuthenticated } = require('../controllers/auth');
 
@@ -13,5 +13,10 @@ router.put('/admin/:adminId/store/editstore/:storeId', isAuthenticated, editStor
 
 //Store Deletion and (Array Product Deletion)
 router.delete('/admin/:adminId/store/deletestore/:storeId', isAuthenticated, deleteStore);
+
+
+//User Store Search
+
+router.get('/admin/category/getallstores', getAllStores);
 
 module.exports = router;

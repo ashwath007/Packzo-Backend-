@@ -149,3 +149,22 @@ exports.deleteStore = (req, res) => {
 
     });
 }
+
+exports.getAllStores = (req, res) => {
+    Store.find({}, (err, allStore) => {
+        if (err) {
+            return res.status(400).json({
+                error: "problem with image"
+            });
+        }
+        if (allStore == null) {
+            return res.status(400).json({
+                msg: "All store not found"
+            });
+        } else {
+            return res.json({
+                stores: allStore
+            })
+        }
+    });
+}

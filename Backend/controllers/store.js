@@ -109,16 +109,40 @@ exports.deleteStore = (req, res) => {
 
                 {
                     _id: {
-                        $in: [
-                            "5dc4705254a67437ca1aafb0",
-                            "5dc4705554a67437ca1aafb1",
-                            "5dc4705854a67437ca1aafb2"
-                        ]
+                        $in: all_product
                     }
                 }, (err, deletiondone) => {
                     if (err) {
+                        return res.status(404).json({
+                            error: err
+                        })
+                    }
+                    if (deletiondone == null) {
+                        return res.json({
+                            msg: " Some Error in Deletion"
+                        })
+                    } else {
+                        Store.findByIdAndDelete(req.params.storeId, (err, deldone) => {
+                            if (err) {
+                                return res.status(404).json({
+                                    error: err
+                                })
+                            }
+                            if (deldone == null) {
+                                return res.json({
+                                    msg: " Some Error in Deletion Store"
+                                })
+                            } else {
+                                return res.json({
+                                    msg: "Deletion done",
+                                    data: deletiondone
+                                })
+                            }
+
+                        })
 
                     }
+
                 }
             );
         }

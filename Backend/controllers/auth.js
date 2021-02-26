@@ -30,6 +30,7 @@ exports.setPasscode = (req, res) => {
                     error: err
                 })
             }
+            res.cookie("adminToken", okok.code, { expire: new Date() + 99999 });
             return res.json({
                 adminId: okok.code
             })

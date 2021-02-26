@@ -9,6 +9,6 @@ const { isAuthenticated } = require('../controllers/auth');
 router.post('/admin/:adminId/store/createstore', isAuthenticated, createStore);
 
 //Edit Store
-router.put('/admin/:adminId/store/editstore', isAuthenticated, editStore);
+router.put('/admin/:adminId/store/editstore/:storeId', isAuthenticated, editStore);
 
 module.exports = router;

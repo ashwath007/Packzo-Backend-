@@ -4,7 +4,7 @@ const formidable = require("formidable");
 const _ = require("lodash");
 const fs = require("fs");
 
-exports.getProductById = (req, res, next, id) => {
+exports.getProductById = (req, res, next, id) => { // TODO 12 Need to test
     Product.findById(id)
         .populate("category")
         .exec((err, product) => {
@@ -17,7 +17,7 @@ exports.getProductById = (req, res, next, id) => {
             next();
         });
 };
-exports.getProductById = (req, res, next, id) => {
+exports.getProductById = (req, res, next, id) => { // TODO 13 Need to test - Middle Ware
     Product.findById(id)
         .populate("category")
         .exec((err, product) => {

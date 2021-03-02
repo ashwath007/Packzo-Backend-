@@ -159,3 +159,16 @@ export const getStoreData = (storeId) => {
         })
         .catch(err => console.log(err));
 }
+
+export const deleteStoreHere = (adminId, storeId) => {
+    return fetch(`${API}/admin/${adminId}/store/deletestore/${storeId}`, {
+            method: "DELETE",
+            headers: {
+                Accept: "application/json",
+            },
+        })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+}

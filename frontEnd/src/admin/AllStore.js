@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import ImageHelper from '../core/helper/ImageHelper'
-import { allStores } from './helper/adminapicall'
+import { allStores,deleteStoreHere } from './helper/adminapicall'
+import adminlogo from "./helper/packzo_logo.png"
 
 
 
@@ -32,8 +33,53 @@ const pdata = 'iVBORw0KGgoAAAANSUhEUgAAAFgAAABSCAYAAADQDhNSAAAABHNCSVQICAgIfAhki
             
         }
     }
+
+    const deleteStore = (adminID,storeID) => {
+          deleteStoreHere(adminID,storeID).then(done => {
+              if(done.error){
+                console.log(done.error)
+                
+              }
+              else{
+                console.log(done)
+              }
+          })
+    }
     return (
         <div className="text-center">
+            <div className="back">
+        
+        <nav className="navbar navbar-light bg-white shadow-lg fixed-top">
+          <a className="navbar-brand" href="#">
+            <img src={adminlogo} width="40" height="50" alt="" loading="lazy"/>
+          </a>
+        </nav>
+        <div className="adminmenu text-white fixed-top">
+        <ul className="nav justify-content-center">
+    
+          <li className="nav-item">
+            <a className="nav-link active text-white" href="/admin/shaji/dashboard/menu">Menu</a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link text-white" href="/admin/shaji/dashboard/orders">Orders</a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link text-white" href="#">Order Manage</a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link text-white" href="#">Delivery</a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link text-white" href="#">Account</a>
+          </li>  <li className="nav-item">
+            <a className="nav-link text-white" href="#">Manage Business</a>
+          </li>
+        </ul>
+            </div>
+                <div className="container">
+        
+                </div>
+        </div>
             <h1>All Stores</h1>
             <p>
             {datas.map((i)=>{
@@ -56,7 +102,10 @@ const pdata = 'iVBORw0KGgoAAAANSUhEUgAAAFgAAABSCAYAAADQDhNSAAAABHNCSVQICAgIfAhki
     <h6 className="card-subtitle mb-2 text-muted">{i.stype}</h6>
     <p className="card-text">{i.description}</p>
     <a href={`/admin/${adminID}/store/option/${i._id}`} className="card-link">Store Option</a> 
-    <a href="#" className="card-link">Store Delete</a>
+    {/* <a href={`/admin/${adminID}/store/deletestore/${i._id}`} className="card-link">Store Delete</a> */}
+      <br/>
+      <button className="btn btn-warning" onPress={deleteStore(adminID,i._id)}>Delete Store</button>
+    {/* /admin/:adminId/store/deletestore/:storeId */}
   </div>    
 </div>
 <br/>

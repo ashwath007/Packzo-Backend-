@@ -10,12 +10,12 @@ export default function StoreOption({match}) {
     const [storeID, setstoreID] = useState("")
 
     const onLoad = () => {
-        getStoreData().then(data => {
-            if(){
+        getStoreData(match.params.storeId).then(data => {
+            if(data.error){
 
             }
             else{
-                
+
             }
         })
     }

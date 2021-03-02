@@ -168,3 +168,18 @@ exports.getAllStores = (req, res) => {
         }
     });
 }
+
+
+exports.getStoreById = (req, res) => { // TODO 13 Need to test - Middle Ware
+    Store.findById(req.body.storeId)
+        .exec((err, store) => {
+            if (err) {
+                return res.status(400).json({
+                    error: "Store not found"
+                });
+            }
+            return res.json({
+                storeData: store
+            })
+        });
+};

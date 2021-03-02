@@ -134,3 +134,16 @@ export const createStore = (adminId, store) => {
         })
         .catch(err => console.log(err));
 }
+
+export const allStores = () => {
+    return fetch(`${API}/admin/category/getallstores`, {
+            method: "GET",
+            headers: {
+                Accept: "application/json",
+            },
+        })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+}

@@ -13,7 +13,7 @@ const pdata = 'iVBORw0KGgoAAAANSUhEUgAAAFgAAABSCAYAAADQDhNSAAAABHNCSVQICAgIfAhki
     const [datas, setdatas] = useState([])
     const [adminID, setadminID] = useState("")
     const loadStores = () => {
-        const ID = localStorage.get("adminId")
+        const ID = localStorage.getItem("adminId")
         setadminID(ID)
         allStores().then(data => {
             if(data.error){
@@ -55,7 +55,7 @@ const pdata = 'iVBORw0KGgoAAAANSUhEUgAAAFgAAABSCAYAAADQDhNSAAAABHNCSVQICAgIfAhki
     <h5 className="card-title">{i.name}</h5>
     <h6 className="card-subtitle mb-2 text-muted">{i.stype}</h6>
     <p className="card-text">{i.description}</p>
-    <a href={`/admin/${adminID}/store/option/${i._id}`} className="card-link">Store Option</a> ///admin/:adminId/store/option/:storeId
+    <a href={`/admin/${adminID}/store/option/${i._id}`} className="card-link">Store Option</a> 
     <a href="#" className="card-link">Store Delete</a>
   </div>    
 </div>

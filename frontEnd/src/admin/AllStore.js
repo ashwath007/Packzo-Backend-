@@ -30,14 +30,14 @@ const pdata = 'iVBORw0KGgoAAAANSUhEUgAAAFgAAABSCAYAAADQDhNSAAAABHNCSVQICAgIfAhki
         }
     }
     return (
-        <div>
+        <div className="text-center">
             <h1>All Stores</h1>
             <p>
             {datas.map((i)=>{
                 return(
                 <div className="container">
                   
-                    <ImageHelper product={i}/>
+                    {/* <ImageHelper product={i}/> */}
                     <div className="rounded">
       {/* <img
         src={`data:image/jpeg;base64,${i.photo.data}`}
@@ -52,9 +52,9 @@ const pdata = 'iVBORw0KGgoAAAANSUhEUgAAAFgAAABSCAYAAADQDhNSAAAABHNCSVQICAgIfAhki
     <h5 className="card-title">{i.name}</h5>
     <h6 className="card-subtitle mb-2 text-muted">{i.stype}</h6>
     <p className="card-text">{i.description}</p>
-    <a href="#" className="card-link">Card link</a>
-    <a href="#" className="card-link">Another link</a>
-  </div>
+    <a href="#" className="card-link">Store Option</a>
+    <a href="#" className="card-link">Store Delete</a>
+  </div>    
 </div>
 <br/>
                 </div>

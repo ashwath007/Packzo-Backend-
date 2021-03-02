@@ -73,6 +73,7 @@ const Routes = () => {
       <Route  path="/admin/:adminId/product/createproduct/:storeId" exact component={CreateProduct} />
       {/* http://localhost:8000/api/admin/adminId/product/createproduct/storeId */}
 
+      <Route  path="/admin/:adminId/store/option/:storeId" exact component={StoreOption} />
 
 
 

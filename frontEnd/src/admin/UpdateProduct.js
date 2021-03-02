@@ -11,7 +11,6 @@ import {
 import { isAutheticated } from "../auth/helper/index";
 
 const UpdateProduct = ({ match }) => {
-  const { user, token } = isAutheticated();
 
   const [values, setValues] = useState({
     name: "",

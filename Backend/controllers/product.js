@@ -197,3 +197,7 @@ exports.photo = (req, res, next) => {
     }
     next();
 };
+
+exports.getaproductfromstore = (req, res) => {
+
+}

@@ -1,13 +1,13 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import { isAutheticated } from "./index";
+import { isPackzoAutheticated } from "./index";
 
 const AdminRoute = ({ component: Component, ...rest }) => {
   return (
     <Route
       {...rest}
       render={props =>
-        isAutheticated() && isAutheticated().user.role === 1 ? (
+        isPackzoAutheticated() ? (
           <Component {...props} />
         ) : (
           <Redirect

@@ -70,3 +70,15 @@ export const isShajiAutheticated = () => {
         return false;
     }
 };
+
+
+export const isPackzoAutheticated = () => {
+    if (typeof window == "undefined") {
+        return false;
+    }
+    if (localStorage.getItem("adminId")) {
+        return JSON.parse(localStorage.getItem("adminId"));
+    } else {
+        return false;
+    }
+};

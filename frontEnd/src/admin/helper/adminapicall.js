@@ -31,12 +31,11 @@ export const getCategories = () => {
 //products calls
 
 //create a product
-export const createaProduct = (userId, token, product) => {
-    return fetch(`${API}/product/create/${userId}`, {
+export const createaProduct = (storeId, adminId, product) => {
+    return fetch(`${API}/admin/${adminId}/product/createproduct/${storeId}`, {
             method: "POST",
             headers: {
                 Accept: "application/json",
-                Authorization: `Bearer ${token}`
             },
             body: product
         })

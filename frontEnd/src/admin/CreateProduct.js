@@ -4,7 +4,7 @@ import { createaProduct } from './helper/adminapicall';
 
 import adminlogo from "./helper/packzo_logo.png"
 
-export default function CreateProduct() {
+export default function CreateProduct({match}) {
     const [values, setValues] = useState({
         name: "",
         description: "",
@@ -18,16 +18,17 @@ export default function CreateProduct() {
         error: "",
         createdProduct: "",
         getaRedirect: false,
-        formData: ""
+        formData: new FormData()
       });
       const [adminID, setadminID] = useState("")
       const [storeID, setstoreID] = useState("")
 
       useEffect(() => {
-          
+        setadminID(match.params.adminId)
+        setstoreID(match.params.storeId)
       }, [])
 
-      
+
       const {
         name,
         description,
@@ -82,7 +83,7 @@ export default function CreateProduct() {
         <form>
           <span>Post photo</span>
           <div className="form-group">
-            <label className="btn btn-block btn-success">
+            <label className="btn btn-block btn-warning">
               <input
                 onChange={handleChange("photo")}
                 type="file"
@@ -156,7 +157,7 @@ export default function CreateProduct() {
           <button
             type="submit"
             onClick={onSubmit}
-            className="btn btn-outline-success mb-3"
+            className="btn btn-outline-warning mb-3"
           >
             Create Product
           </button>
@@ -203,7 +204,10 @@ export default function CreateProduct() {
         
                 <div className="container">
         {successMessage}
-        {createProductForm}
+        <div className="mt-5">
+        {createProductForm()}
+
+        </div>
                 </div>
         </div>
         </div>

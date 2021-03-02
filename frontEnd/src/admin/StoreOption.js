@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import adminlogo from "./helper/packzo_logo.png"
-import "./AdminShajiDash.css"
+import "./StoreOption.css"
 export default function StoreOption({match}) {
 
 
@@ -12,11 +12,14 @@ export default function StoreOption({match}) {
         
 <nav className="navbar navbar-light bg-white shadow-lg fixed-top">
   <a className="navbar-brand" href="#">
-    <img src={adminlogo} width="40" height="40" alt="" loading="lazy"/>
+    <img src={adminlogo} width="40" height="50" alt="" loading="lazy"/>
   </a>
 </nav>
 <div className="adminmenu text-white fixed-top">
 <ul className="nav justify-content-center">
+    <div classNAme="mt-5">
+        
+    </div>
   <li className="nav-item">
     <a className="nav-link active text-white" href="/admin/shaji/dashboard/menu">Menu</a>
   </li>
@@ -42,8 +45,10 @@ export default function StoreOption({match}) {
 </div>
 <div className="menucenter">
 <main role="main" class="container">
-  
-  <form>
+        <div>
+            
+        </div>
+  <form className="mt-5">
     <div class="my-3 p-3 bg-white rounded shadow-sm">
       <h6 class="border-bottom border-gray pb-2 mb-0">Menu</h6>
       <Link to="/admin/shaji/dashboard/menu/create">

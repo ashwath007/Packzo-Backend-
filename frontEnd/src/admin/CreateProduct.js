@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import { Link } from "react-router-dom";
-import { createaProduct } from './helper/adminapicall';
+import { createaProduct, getCategories } from './helper/adminapicall';
 
 import adminlogo from "./helper/packzo_logo.png"
 
@@ -26,9 +26,20 @@ export default function CreateProduct({match}) {
       useEffect(() => {
         setadminID(match.params.adminId)
         setstoreID(match.params.storeId)
+        getAllCategory()
       }, [])
 
-
+      const getAllCategory = () => {
+          getCategories().then(cates => {
+              if(cates.error){
+                setValues({ ...values, error: cates.error });
+              }
+              else{
+                setValues({ ...values, categories: cates.categories, formData: new FormData() });
+                console.log(categories)
+              }
+          })
+      }
       const {
         name,
         description,
@@ -146,7 +157,7 @@ export default function CreateProduct({match}) {
           </div>
           <div className="form-group">
             <input
-              onChange={handleChange("stock")}
+              onChange={handleChange("sold")}
               type="number"
               className="form-control"
               placeholder="Sold"

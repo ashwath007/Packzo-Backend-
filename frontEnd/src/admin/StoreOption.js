@@ -1,9 +1,24 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import { Link } from "react-router-dom";
 import adminlogo from "./helper/packzo_logo.png"
 import "./StoreOption.css"
 export default function StoreOption({match}) {
 
+    useEffect(() => {
+        
+    }, []);
+    const [storeID, setstoreID] = useState("")
+
+    const onLoad = () => {
+        getStoreData().then(data => {
+            if(){
+
+            }
+            else{
+                
+            }
+        })
+    }
 
     return (
         <div>
@@ -46,16 +61,16 @@ export default function StoreOption({match}) {
 <div className="menucenter">
 <main role="main" class="container">
         <div>
-            
+
         </div>
   <form className="mt-5">
-    <div class="my-3 p-3 bg-white rounded shadow-sm">
+    <div class="my-3 p-3 adminop rounded shadow-sm">
       <h6 class="border-bottom border-gray pb-2 mb-0">Menu</h6>
       <Link to="/admin/shaji/dashboard/menu/create">
-      <div class="media text-muted pt-3"> 
+      <div class="media text-muted pt-3 "> 
         <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
-        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-          <strong class="d-block text-gray-dark">Add new Menu</strong>
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray text-white">
+          <strong class="d-block text-gray-dark text-white">Add new Menu</strong>
           Here you can add the new menu items
         </p>
         
@@ -64,8 +79,8 @@ export default function StoreOption({match}) {
       <Link to="/admin/shaji/dashboard/product/show">
       <div class="media text-muted pt-3"> 
         <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
-        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-          <strong class="d-block text-gray-dark">Update Menu</strong>
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray text-white">
+          <strong class="d-block text-gray-dark text-white">Update Menu</strong>
           Here you can add the new menu items
         </p>
         
@@ -74,8 +89,8 @@ export default function StoreOption({match}) {
       <Link to="/">
       <div class="media text-muted pt-3"> 
         <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
-        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-          <strong class="d-block text-gray-dark">Tax and Price</strong>
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray text-white">
+          <strong class="d-block text-gray-dark text-white">Tax and Price</strong>
           Here you can add the new menu items
         </p>
         
@@ -84,8 +99,8 @@ export default function StoreOption({match}) {
       <Link to="/admin/shaji/dashboard/category/create">
       <div class="media text-muted pt-3"> 
         <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
-        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-          <strong class="d-block text-gray-dark">Create Category</strong>
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray text-white">
+          <strong class="d-block text-gray-dark text-white">Create Category</strong>
           Here you can add the new menu items
         </p>
         
@@ -95,8 +110,8 @@ export default function StoreOption({match}) {
       <Link to="/admin/shaji/dashboard/category/show">
       <div class="media text-muted pt-3"> 
         <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
-        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-          <strong class="d-block text-gray-dark">All Category</strong>
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray text-white">
+          <strong class="d-block text-gray-dark text-white">All Category</strong>
           Here you can see and update all category
         </p>
         

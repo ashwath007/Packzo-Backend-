@@ -35,16 +35,28 @@ export default function CreateStore() {
 
 
       const handleChange = name => event => {
-            setValues({...values,[name]: event.target.value});
-
-      }
+        const value = name === "photo" ? event.target.files[0] : event.target.value;
+        formData.set(name, value);
+        setValues({ ...values, [name]: value });
+      };
       const onSubmit = (event) => {
-        createStore(adminID,values).then(data => {
+    event.preventDefault();
+
+        createStore(adminID,formData).then(data => {
             if (data.error) {
+                console.log(data.error);
                 setValues({ ...values, error: data.error });
               } else {
-                setValues({ ...values, categories: data, formData: new FormData() });
-              }
+                setValues({
+                  ...values,
+                  name: "",
+                  description: "",
+                  price: "",
+                  photo: "",
+                  loading: false,
+                  createdStore: data.name
+                });
+            }
         })
       }
       const createProductForm = () => (
@@ -86,7 +98,7 @@ export default function CreateStore() {
               name="photo"
               className="form-control"
               placeholder="Type of Store"
-              value={description}
+              value={stype}
             />
           </div>
       

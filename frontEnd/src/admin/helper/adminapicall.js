@@ -120,6 +120,7 @@ export const createAdmin = (admin) => {
 
 
 export const createStore = (adminId, store) => {
+    console.log(store)
     return fetch(`${API}/admin/${adminId}/store/createstore`, {
             method: "POST",
             headers: {

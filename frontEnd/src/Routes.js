@@ -71,9 +71,11 @@ const Routes = () => {
       <Route  path="/admin/packzo/dashboard" exact component={AdminDash} />
       <Route  path="/admin/packzo/CreateStore" exact component={CreateStore} />
       <Route  path="/admin/packzo/AllStore" exact component={AllStore} />
-      <Route  path="/admin/:adminId/product/createproduct/:storeId" exact component={CreateProduct} />
+      <Route  path="/admin/:adminId/product/createingproduct/:storeId" exact component={CreateProduct} />
       {/* http://localhost:8000/api/admin/adminId/product/createproduct/storeId */}
+     
 
+      {/* /admin/adminId/product/createproduct/storeId */}
       <Route  path="/admin/:adminId/store/option/:storeId" exact component={StoreOption} />
 
 

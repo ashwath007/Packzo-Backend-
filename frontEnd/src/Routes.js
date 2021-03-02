@@ -51,6 +51,8 @@ import AdminDash from "./admin/AdminDash"; //Need to design Admin Dash
 import CreateStore from "./admin/CreateStore";
 import CreateAdmin from "./admin/CreateAdmin";
 import CreateProduct from './admin/CreateProduct';
+import UpdataProduct from './admin/UpdateProduct';
+
 import AllStore from './admin/AllStore';
 import StoreOption from "./admin/StoreOption";
 
@@ -73,6 +75,7 @@ const Routes = () => {
       <Route  path="/admin/packzo/AllStore" exact component={AllStore} />
       <Route  path="/admin/:adminId/product/createingproduct/:storeId" exact component={CreateProduct} />
       {/* http://localhost:8000/api/admin/adminId/product/createproduct/storeId */}
+      <Route  path="/admin/:adminId/product/updateproduct/:storeId" exact component={UpdataProduct} />
      
 
       {/* /admin/adminId/product/createproduct/storeId */}

@@ -117,3 +117,19 @@ export const createAdmin = (admin) => {
         })
         .catch(err => console.log(err));
 };
+
+
+export const createStore = (adminId, store) => {
+    return fetch(`${API}/admin/${adminId}/store/createstore`, {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+
+            },
+            body: store
+        })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+}

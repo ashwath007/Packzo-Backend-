@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { createStore } from "./helper/adminapicall";
 import Base from "../core/Base";
 
 export default function CreateStore() {
@@ -26,17 +27,24 @@ export default function CreateStore() {
         category,
         loading,
         error,
-        createdProduct,
+        createdStore,
         getaRedirect,
         formData
       } = values
 
 
       const handleChange = name => event => {
-            setValues({...values,[name]: event.target.value})
+            setValues({...values,[name]: event.target.value});
+
       }
       const onSubmit = (event) => {
-
+        createStore(adminID,values).then(data => {
+            if (data.error) {
+                setValues({ ...values, error: data.error });
+              } else {
+                setValues({ ...values, categories: data, formData: new FormData() });
+              }
+        })
       }
       const createProductForm = () => (
         <form>
@@ -101,9 +109,9 @@ export default function CreateStore() {
       const successMessage = () => (
         <div
           className="alert alert-success mt-3"
-          style={{ display: createdProduct ? "" : "none" }}
+          style={{ display: createdStore ? "" : "none" }}
         >
-          <h4>{createdProduct} created successfully</h4>
+          <h4>{createdStore} created successfully</h4>
         </div>
       );
         const preLoad = () => {

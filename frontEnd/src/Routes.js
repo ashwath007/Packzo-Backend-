@@ -42,13 +42,24 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 // import Fleetsignin from "./user/FleetsMenu/Fleetsignin"
 // import FleetHome from "./user/FleetsMenu/FleetHome"
 // import EditFleetsData from "./user/AdminMenus/Fleets/EditFleetsData"
+
+
+
+
+import AdminHome from "./user/AdminHome";
+
+
+
+
+
+
 const Routes = () => {
   return (
     <BrowserRouter>
       <Switch>
 
-    
 
+      <Route  path="/admin" exact component={AdminHome} />
 
 
 

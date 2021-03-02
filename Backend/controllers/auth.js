@@ -73,3 +73,19 @@ exports.signOut = (req, res) => {
         message: "User signout successfully"
     });
 }
+
+
+
+exports.admincode = (req, res) => {
+    console.log("YEs");
+    console.log(req.body);
+    if (req.body.passcode === "8072002769") {
+        console.log("God");
+        const token = jwt.sign({ name: "admin" }, process.env.SECRET);
+        //put token in cookie
+        res.cookie("token", token, { expire: new Date() + 9999 });
+
+        // send response to front end
+        return res.json({ token, user: "admin", role: 1 });
+    }
+}

@@ -24,18 +24,16 @@ export default function AllStore() {
     }
     const showShops = () => {
         if(datas!=""){
-            return (
-                {datas.map((i)=>{
-
-                })}
-            )
+            
         }
     }
     return (
         <div>
             <h1>Hello here</h1>
             <p>
-            {showShops}
+            {datas.map((i)=>{
+                return(<h2>{i.name}</h2>)
+            })}
             </p>
         </div>
     )

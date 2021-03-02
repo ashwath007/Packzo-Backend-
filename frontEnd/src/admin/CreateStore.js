@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { createStore } from "./helper/adminapicall";
 import Base from "../core/Base";
+import Map from "mapmyindia-react";
 
 export default function CreateStore() {
     const [values, setValues] = useState({
@@ -32,8 +33,33 @@ export default function CreateStore() {
         getaRedirect,
         formData
       } = values
+      const [latitude, setlatitude] = useState(11.127122499999999)
+      const [longitude, setlongitude] = useState(78.6568942)
 
+      const showUserMap = () => {
+        if(longitude && latitude){
+            return(
+                <Map
+            markers={[
+              {
+                position: [latitude, longitude],
 
+                draggable: true,
+                title: "User Location",
+                onClick: e => {
+                  console.log("clicked ");
+                },
+                onDragend: e => {
+                  console.log("dragged");
+                }
+              }
+            ]}
+        center={[latitude, longitude]}
+
+          />
+            )
+        }
+    }
       const handleChange = name => event => {
         const value = name === "photo" ? event.target.files[0] : event.target.value;
         formData.set(name, value);
@@ -103,7 +129,7 @@ export default function CreateStore() {
             />
           </div>
       
-    
+        {showUserMap()}
           <button
             type="submit"
             onClick={onSubmit}

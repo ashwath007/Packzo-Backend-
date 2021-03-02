@@ -185,3 +185,15 @@ exports.getAllproducts = (req, res) => {
     console.log(req.params.storeId);
     // Here we need to send all Product Information based on the Stores
 }
+
+exports.getProduct = (req, res) => {
+    req.Store.photo = undefined;
+    return res.json(req.Store);
+};
+exports.photo = (req, res, next) => {
+    if (req.Store.photo.data) {
+        res.set("Content-Type", req.Store.photo.contentType);
+        return res.send(req.Store.photo.data);
+    }
+    next();
+};

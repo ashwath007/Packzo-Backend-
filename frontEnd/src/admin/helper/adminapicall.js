@@ -86,7 +86,8 @@ export const getProduct = productId => {
 
 //update a product
 
-export const updateProduct = (productId, userId, token, product) => {
+export const updateProduct = (productId, adminId, product) => {
+    // http://localhost:8000/api/admin/da5a68cb-56b6-4058-ab32-831d738dae56/product/updateProducts/60389c217c92e261d4d8b3dd
     return fetch(`${API}/product/${productId}/${userId}`, {
             method: "PUT",
             headers: {

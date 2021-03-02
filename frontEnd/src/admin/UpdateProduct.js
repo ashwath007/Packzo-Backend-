@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Base from "../core/Base";
 import { Link } from "react-router-dom";
+import adminlogo from "./helper/packzo_logo.png"
+
 import {
   getCategories,
   getProduct,
@@ -82,7 +84,7 @@ const UpdateProduct = ({ match }) => {
     event.preventDefault();
     setValues({ ...values, error: "", loading: true });
 
-    updateProduct(match.params.productId, user._id, token, formData).then(
+    updateProduct(match.params.productId,match.params.adminId, formData).then(
       data => {
         if (data.error) {
           setValues({ ...values, error: data.error });
@@ -121,7 +123,7 @@ const UpdateProduct = ({ match }) => {
     <form>
       <span>Post photo</span>
       <div className="form-group">
-        <label className="btn btn-block btn-success">
+        <label className="btn btn-block btn-warning">
           <input
             onChange={handleChange("photo")}
             type="file"
@@ -186,7 +188,7 @@ const UpdateProduct = ({ match }) => {
       <button
         type="submit"
         onClick={onSubmit}
-        className="btn btn-outline-success mb-3"
+        className="btn btn-outline-warning mb-3"
       >
         Update Product
       </button>
@@ -226,26 +228,22 @@ const UpdateProduct = ({ match }) => {
           </li>
         </ul>
         
-                <div >
-                <Base
-      title="Add a product here!"
-      description="Welcome to product creation section"
-      className="container bg-info p-4"
-    >
+                <div>
+         
       <Link to="/admin/dashboard" className="btn btn-md btn-dark mb-3">
         Admin Home
       </Link>
-      <div className="row bg-dark text-white rounded">
+      <div className="row adminmenu text-white rounded">
         <div className="col-md-8 offset-md-2">
           {successMessage()}
           {createProductForm()}
         </div>
       </div>
-    </Base>
+  
                 </div>
         </div>
 
-    </div>
+    </div></div>
     
   );
 };

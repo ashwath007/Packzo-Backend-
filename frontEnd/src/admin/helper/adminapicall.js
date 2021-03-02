@@ -147,3 +147,16 @@ export const allStores = () => {
         })
         .catch(err => console.log(err));
 }
+
+export const getStoreData = (storeId) => {
+    return fetch(`${API}/admin/getStoreInfo/${storeId}`, {
+            method: "GET",
+            headers: {
+                Accept: "application/json",
+            },
+        })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+}

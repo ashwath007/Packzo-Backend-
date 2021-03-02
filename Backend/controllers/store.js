@@ -171,7 +171,7 @@ exports.getAllStores = (req, res) => {
 
 
 exports.getStoreById = (req, res) => { // TODO 13 Need to test - Middle Ware
-    Store.findById(req.body.storeId)
+    Store.findById(req.params.storeId)
         .exec((err, store) => {
             if (err) {
                 return res.status(400).json({

@@ -1,25 +1,36 @@
 import React,{useEffect,useState} from 'react'
 import { Link } from "react-router-dom";
+import { getStoreData } from './helper/adminapicall';
 import adminlogo from "./helper/packzo_logo.png"
 import "./StoreOption.css"
+
+
+
 export default function StoreOption({match}) {
 
     useEffect(() => {
-        
+        onLoad()
     }, []);
     const [storeID, setstoreID] = useState("")
 
     const onLoad = () => {
         getStoreData(match.params.storeId).then(data => {
             if(data.error){
-
+///admin/getStoreInfo/:storeId
             }
             else{
-
+                console.log(data)
+                setstoreID(data)
             }
         })
     }
-
+    const showStore = () => {
+        if(storeID !=""){
+            return(
+                
+            )
+        }
+    }
     return (
         <div>
             {/* <h5>{match.params.storeId}</h5> */}
@@ -55,13 +66,13 @@ export default function StoreOption({match}) {
 </ul>
 
         <div className="container">
-          
+
         </div>
 </div>
 <div className="menucenter">
 <main role="main" class="container">
         <div>
-
+            {showStore}
         </div>
   <form className="mt-5">
     <div class="my-3 p-3 adminop rounded shadow-sm">

@@ -16,7 +16,7 @@ export default function CreateStore() {
         error: "",
         createdStore: "",
         getaRedirect: false,
-        formData: ""
+        formData: new FormData
       });
 
       const [adminID, setadminID] = useState("")
@@ -53,6 +53,7 @@ export default function CreateStore() {
                   description: "",
                   price: "",
                   photo: "",
+                  getaRedirect: true,
                   loading: false,
                   createdStore: data.name
                 });
@@ -138,6 +139,12 @@ export default function CreateStore() {
                     Create Store
                 </h2>
             </div>
+            <div className="test-center">
+            <Link to="/admin/dashboard" className="btn btn-md btn-dark mb-3 text-center">
+        Packzo Dashboard
+      </Link> 
+            </div>
+          
         <div className="mt-5 row text-white rounded">
         <div className="col-md-8 offset-md-2">
           {successMessage()}

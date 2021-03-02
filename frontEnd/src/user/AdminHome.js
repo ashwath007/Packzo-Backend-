@@ -40,11 +40,11 @@ const AdminHome = () => {
     const isAdminHome = () => {
 
         if(isRedireact){
-           return <Redirect to="/admin/shaji/dashboard"/>
+           return <Redirect to="/admin/packzo/dashboard"/>
         }
     }
     return (
-        <Base title="Packzo Admin" description="Here you can create menu and update">
+        <Base title="Packzo Admin" description="Here you can store create menu and update">
             <h1 className="text-white">{passcode}</h1>
             {isAdminHome()}
             <div className="container">

@@ -47,7 +47,8 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 
 import AdminHome from "./user/AdminHome";
-
+import AdminDash from "./admin/AdminDash"; //Need to design Admin Dash
+import CreateStore from "./admin/CreateStore"
 
 
 
@@ -60,6 +61,9 @@ const Routes = () => {
 
 
       <Route  path="/admin" exact component={AdminHome} />
+      {/* /admin/home */}
+      <Route  path="/admin/packzo/dashboard" exact component={AdminDash} />
+      <Route  path="/admin/packzo/CreateStore" exact component={CreateStore} />
 
 
 

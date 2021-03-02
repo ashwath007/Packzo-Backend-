@@ -15,6 +15,8 @@ import ManageProducts from "./admin/ManageProducts";
 import UpdateProduct from "./admin/UpdateProduct";
 import Cart from "./core/Cart";
 import AdminHome from "./user/AdminHome";
+import CreateAdmin from "./user/CreateAdmin";
+
 import AddFleets from "./user/AdminMenus/Fleets/AddFleets" 
 import EditFleets from "./user/AdminMenus/Fleets/EditFleets" 
 
@@ -73,6 +75,8 @@ const Routes = () => {
         <Route path="/loc" exact component={SignupLoc} />
         
         <Route path="/admin" exact component={AdminHome} />
+        <Route path="/createAdmin" exact component={CreateAdmin} />
+
         <AdminShajiRoute path="/admin/shaji/dashboard" exact component={AdminShajiDash} />
         <AdminShajiRoute path="/admin/shaji/dashboard/menu" exact component={AdminShajiDashMenu}/>
         <AdminShajiRoute path="/admin/shaji/dashboard/orders" exact component={AdminShajiDashOrders}/>

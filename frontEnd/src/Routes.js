@@ -15,7 +15,7 @@ import ManageProducts from "./admin/ManageProducts";
 import UpdateProduct from "./admin/UpdateProduct";
 import Cart from "./core/Cart";
 import AdminHome from "./user/AdminHome";
-import CreateAdmin from "./user/CreateAdmin";
+import CreateAdmin from "./admin/CreateAdmin";
 
 import AddFleets from "./user/AdminMenus/Fleets/AddFleets" 
 import EditFleets from "./user/AdminMenus/Fleets/EditFleets" 

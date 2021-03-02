@@ -108,9 +108,9 @@ export const createAdmin = (admin) => {
             method: "POST",
             headers: {
                 Accept: "application/json",
-                "Content-Type": "application/json",
+
             },
-            body: JSON.stringify(admin)
+            body: admin
         })
         .then(response => {
             return response.json();

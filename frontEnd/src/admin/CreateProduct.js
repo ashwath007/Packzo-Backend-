@@ -10,6 +10,7 @@ export default function CreateProduct() {
         description: "",
         price: "",
         stock: "",
+        sold:"",
         photo: "",
         categories: [],
         category: "",
@@ -19,12 +20,20 @@ export default function CreateProduct() {
         getaRedirect: false,
         formData: ""
       });
-    
+      const [adminID, setadminID] = useState("")
+      const [storeID, setstoreID] = useState("")
+
+      useEffect(() => {
+          
+      }, [])
+
+      
       const {
         name,
         description,
         price,
         stock,
+        sold,
         categories,
         category,
         loading,
@@ -37,7 +46,7 @@ export default function CreateProduct() {
     const onSubmit = event => {
         event.preventDefault();
         setValues({ ...values, error: "", loading: true });
-        createaProduct(user._id, formData).then(data => {
+        createaProduct(storeID,adminID, formData).then(data => {
           if (data.error) {
             setValues({ ...values, error: data.error });
           } else {

@@ -11,7 +11,7 @@ export default function StoreOption({match}) {
     useEffect(() => {
         onLoad()
     }, []);
-    const [storeID, setstoreID] = useState("")
+    const [storeID, setstoreID] = useState(null)
 
     const onLoad = () => {
         getStoreData(match.params.storeId).then(data => {
@@ -19,15 +19,23 @@ export default function StoreOption({match}) {
 ///admin/getStoreInfo/:storeId
             }
             else{
-                console.log(data)
-                setstoreID(data)
+                console.log(data.storeData)
+                setstoreID(data.storeData)
             }
         })
     }
     const showStore = () => {
-        if(storeID !=""){
+        if(storeID !==null){
+            console.log("storeID")
             return(
-                
+                <div className="card adminos">
+  <h5 className="card-header">Store Name - {storeID.name}</h5>
+  <div className="card-body">
+    <h5 className="card-title">{storeID.stype}</h5>
+    <p className="card-text">{storeID.description}</p>
+    <a href="#" className="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
             )
         }
     }
@@ -44,7 +52,7 @@ export default function StoreOption({match}) {
 <div className="adminmenu text-white fixed-top">
 <ul className="nav justify-content-center">
     <div classNAme="mt-5">
-        
+    
     </div>
   <li className="nav-item">
     <a className="nav-link active text-white" href="/admin/shaji/dashboard/menu">Menu</a>
@@ -71,8 +79,8 @@ export default function StoreOption({match}) {
 </div>
 <div className="menucenter">
 <main role="main" class="container">
-        <div>
-            {showStore}
+        <div className="mt-3">
+            {showStore()}
         </div>
   <form className="mt-5">
     <div class="my-3 p-3 adminop rounded shadow-sm">

@@ -17,7 +17,7 @@ export default function CreateStore() {
         formData: ""
       });
 
-
+      const [adminID, setadminID] = useState("")
       const {
         name,
         description,
@@ -33,9 +33,9 @@ export default function CreateStore() {
 
 
       const handleChange = name => event => {
-
+            setValues({...values,[name]: event.target.value})
       }
-      const onSubmit = () => {
+      const onSubmit = (event) => {
 
       }
       const createProductForm = () => (
@@ -106,10 +106,13 @@ export default function CreateStore() {
           <h4>{createdProduct} created successfully</h4>
         </div>
       );
-
+        const preLoad = () => {
+            const ID = localStorage.getItem('adminId');
+            setadminID(ID)
+        }
 
       useEffect(() => {
-          
+          preLoad()
       }, [])
 
 

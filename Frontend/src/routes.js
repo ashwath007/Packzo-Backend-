@@ -1,43 +1,44 @@
-import React from 'react';
-import { Navigate } from 'react-router-dom';
-import DashboardLayout from 'src/layouts/DashboardLayout';
-import MainLayout from 'src/layouts/MainLayout';
-import AccountView from 'src/views/account/AccountView';
-import CustomerListView from 'src/views/customer/CustomerListView';
-import DashboardView from 'src/views/reports/DashboardView';
-import LoginView from 'src/views/auth/LoginView';
-import NotFoundView from 'src/views/errors/NotFoundView';
-import ProductListView from 'src/views/product/ProductListView';
-import RegisterView from 'src/views/auth/RegisterView';
-import SettingsView from 'src/views/settings/SettingsView';
+import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Home from "./core/Home";
+import Signup from "./user/Signup";
+import Signin from "./user/Signin";
+import AdminRoute from "./auth/helper/AdminRoutes";
+import PrivateRoute from "./auth/helper/PrivateRoutes";
+import UserDashBoard from "./user/UserDashBoard";
+import AdminDashBoard from "./user/AdminDashBoard";
+import AddCategory from "./admin/AddCategory";
+import ManageCategories from "./admin/ManageCategories";
+import AddProduct from "./admin/AddProduct";
+import ManageProducts from "./admin/ManageProducts";
+import UpdateProduct from "./admin/UpdateProduct";
+import Cart from "./core/Cart";
+import AdminHome from "./user/AdminHome";
+import AddFleets from "./user/AdminMenus/Fleets/AddFleets" 
+import EditFleets from "./user/AdminMenus/Fleets/EditFleets" 
 
-const routes = [
-  {
-    path: 'app',
-    element: <DashboardLayout />,
-    children: [
-      { path: 'account', element: <AccountView /> },
-      { path: 'customers', element: <CustomerListView /> },
-      { path: 'dashboard', element: <DashboardView /> },
-      { path: 'products', element: <ProductListView /> },
-      { path: 'settings', element: <SettingsView /> },
-      { path: '*', element: <Navigate to="/404" /> }
-    ]
-  },
-  {
-    path: '/',
-    element: <MainLayout />,
-    children: [
-      { path: 'login', element: <LoginView /> },
-      { path: 'register', element: <RegisterView /> },
-      { path: '404', element: <NotFoundView /> },
-      { path: '/', element: <Navigate to="/app/dashboard" /> },
-      { path: '*', element: <Navigate to="/404" /> }
-    ]
-  }
-];
-
-
+import AdminShajiRoute from "./auth/helper/AdminShajiRoutes";
+import AdminShajiDashMenu from "./user/AdminMenus/AdminShajiDashMenu";
+import AdminShajiDashOrders from "./user/AdminMenus/AdminShajiDashOrders";
+import AdminShajiDashMenuCreate from "./user/AdminMenus/AdminShajiDashMenuCreate";
+import AdminShajiDashCategoryCreate from "./user/AdminMenus/AdminShajiDashCategoryCreate";
+import AdminShajiDashCategoryShow from "./user/AdminMenus/AdminShajiDashCategoryShow";
+import AdminShajiDashCategoryEdit from "./user/AdminMenus/AdminShajiDashCategoryEdit";
+import AdminShajiDashProductEdit from "./user/AdminMenus/AdminShajiDashProductEdit";
+import AdminShajiDash from "./user/AdminMenus/AdminShajiDash";
+import Verification from "./user/Verification";
+import Purchase from "./core/Purchase";
+import Bill from "./core/Bill";
+import Cod from "./core/Cod";
+import Order from "./core/Order";
+import Profile from "./core/Profile";
+// import ProfileEdit from "./core/ProfileEdit";
+import AdminShajiDashOrderOutDelivery from "./user/AdminMenus/AdminShajiDashOrderOutDelivery"
+import AdminShajiOrderTakeOrder from "./user/AdminMenus/AdminShajiOrderTakeOrder";
+import SignupLoc from "./user/SignupLoc"
+import Fleetsignin from "./user/FleetsMenu/Fleetsignin"
+import FleetHome from "./user/FleetsMenu/FleetHome"
+import EditFleetsData from "./user/AdminMenus/Fleets/EditFleetsData"
 const Routes = () => {
   return (
     <BrowserRouter>
@@ -117,5 +118,4 @@ const Routes = () => {
   );
 };
 
-
-export default routes;
+export default Routes;

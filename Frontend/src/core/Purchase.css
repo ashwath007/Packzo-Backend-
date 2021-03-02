@@ -1,0 +1,71 @@
+.rr {
+    right: 0;
+}
+
+.offertab {
+    background-color: #ffffff;
+}
+
+.backoffer {
+    background-color: #5A18F3;
+    justify-content: space-between;
+}
+
+.boxO {
+    background-color: #21bd55;
+    border-radius: 8px;
+}
+
+.totaltxtt {
+    justify-content: end;
+    text-align: right;
+}
+
+.cartpage {
+    background-color: #192A56;
+    color: white;
+}
+
+.edtbtn {
+    color: #2C3335;
+    background-color: #DAE0E2;
+}
+
+.txtcol {
+    color: #192A56;
+}
+
+.pro {
+    color: #192A56;
+}
+
+.eatbtn {
+    background-color: #F3B431;
+    padding-top: 83px;
+}
+
+body {
+    background-color: #ffffff;
+}
+
+.gifbox {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.gifimg {
+    margin-top: 9px;
+    width: 200px;
+    height: 140px;
+    border-radius: 23px;
+}
+
+.jji {
+    background-color: #192A56;
+}
+
+.billbtn {
+    background-color: #535C68;
+    color: #ffffff;
+}

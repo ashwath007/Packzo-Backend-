@@ -9,6 +9,7 @@ export default function CreateStore() {
         description: "",
         stype: "",
         photo: "",
+        location:[],
         categories: [],
         category:"",
         loading: false,
@@ -54,7 +55,7 @@ export default function CreateStore() {
               <input
                 onChange={handleChange("photo")}
                 type="file"
-                name="photo"
+                name="store logo"
                 accept="image"
                 placeholder="choose a file"
               />
@@ -80,19 +81,13 @@ export default function CreateStore() {
           </div>
        
           <div className="form-group">
-            <select
-              onChange={handleChange("category")}
+          <textarea
+              onChange={handleChange("stype")}
+              name="photo"
               className="form-control"
-              placeholder="Category"
-            >
-              <option>Select</option>
-              {categories &&
-                categories.map((cate, index) => (
-                  <option key={index} value={cate._id}>
-                    {cate.name}
-                  </option>
-                ))}
-            </select>
+              placeholder="Type of Store"
+              value={description}
+            />
           </div>
       
     
@@ -101,7 +96,7 @@ export default function CreateStore() {
             onClick={onSubmit}
             className="btn btn-outline-success mb-3"
           >
-            Create Product
+            Create Store
           </button>
         </form>
       );

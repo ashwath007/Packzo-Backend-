@@ -199,5 +199,19 @@ exports.photo = (req, res, next) => {
 };
 
 exports.getaproductfromstore = (req, res) => {
+    console.log(req.params.productId)
+    Product.findById({ _id: req.params.productId }, (err, done) => {
+        if (err) {
+            console.log(err)
 
+            return res.status(404).json({
+                error: err
+            })
+        } else {
+            console.log(done)
+            return res.json({
+                data: done
+            })
+        }
+    })
 }

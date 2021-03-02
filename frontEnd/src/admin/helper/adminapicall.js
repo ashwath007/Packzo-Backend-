@@ -19,7 +19,7 @@ export const createCategory = (userId, token, category) => {
 
 //get all categories
 export const getCategories = () => {
-    return fetch(`${API}/admin/category/getallcategory`, {
+    return fetch(`${API}/admin/product/getcategoryProducts`, {
             method: "GET"
         })
         .then(response => {
@@ -75,7 +75,7 @@ export const deleteProduct = (productId, userId, token) => {
 //get a product
 
 export const getProduct = productId => {
-    return fetch(`${API}/product/${productId}`, {
+    return fetch(`${API}/admin/category/getaproduct/${productId}`, {
             method: "GET"
         })
         .then(response => {

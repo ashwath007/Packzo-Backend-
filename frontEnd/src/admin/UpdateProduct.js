@@ -40,39 +40,40 @@ const UpdateProduct = ({ match }) => {
     getaRedirect,
     formData
   } = values;
-
+  const getAllCategory = () => {
+    getCategories().then(cates => {
+        if(cates.error){
+          setValues({ ...values, error: cates.error });
+        }
+        else {
+        
+          setValues({
+            categories: cates,
+            formData: new FormData()
+          });
+        }
+    })
+}
   const preload = productId => {
     getProduct(productId).then(data => {
-      //console.log(data);
+      console.log(data.data.category);
       if (data.error) {
         setValues({ ...values, error: data.error });
       } else {
-        preloadCategories();
+        getAllCategory();
         setValues({
           ...values,
-          name: data.name,
-          description: data.description,
-          price: data.price,
-          category: data.category._id,
-          stock: data.stock,
+          name: data.data.name,
+          description: data.data.description,
+          price: data.data.price,
+          category: data.data.category,
+          stock: data.data.stock,
           formData: new FormData()
         });
       }
     });
   };
 
-  const preloadCategories = () => {
-    getCategories().then(data => {
-      if (data.error) {
-        setValues({ ...values, error: data.error });
-      } else {
-        setValues({
-          categories: data,
-          formData: new FormData()
-        });
-      }
-    });
-  };
 
   useEffect(() => {
     preload(match.params.productId);

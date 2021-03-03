@@ -229,36 +229,20 @@ exports.getaproductfromstore = (req, res) => {
 
 exports.getproductfromstore = (req, res) => {
     const storeId = req.params.storeId;
-    p_name = [];
-    p_data = [];
 
-    p_desc = [];
-    p_id = [];
     const pushData = () => {
         return p_data
     }
-    Store.findById({ _id: storeId }, (err, done) => {
+    Product.find({ store: storeId }, (err, gotit) => {
         if (err) {
             return res.status(404).json({
                 error: err
             })
         } else {
-
-            done.product.map((i) => {
-                    Product.findById({ _id: i }, (err, pro) => {
-                        if (err) {
-                            return res.status(404).json({
-                                error: err
-                            })
-                        }
-                        p_data.push(pro)
-                    })
-                })
-                // const all = pushData();
-                // return res.json({
-                //     data: all
-                // })
-
+            console.log(gotit)
+            return res.json({
+                data: gotit
+            })
         }
     })
 }

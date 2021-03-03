@@ -1,13 +1,12 @@
 import { API } from "../../backend";
 
 //category calls
-export const createCategory = (userId, token, category) => {
-    return fetch(`${API}/category/create/${userId}`, {
+export const createCategory = (category, adminId) => {
+    return fetch(`${API}/admin/${adminId}/category/createcategory`, {
             method: "POST",
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`
             },
             body: JSON.stringify(category)
         })

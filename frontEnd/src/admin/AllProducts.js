@@ -13,7 +13,7 @@ export default function AllProducts({match}) {
 
             }
             else{
-                console.log("Data:",data.data)
+                console.log("Data:",data)
 
                 setProducts(data.data)
             }

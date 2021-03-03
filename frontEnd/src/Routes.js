@@ -57,7 +57,7 @@ import AllStore from './admin/AllStore';
 import AllProduct from './admin/AllProducts';
 
 import StoreOption from "./admin/StoreOption";
-
+import CreateCategory from "./admin/CreateCategory";
 
 
 
@@ -79,6 +79,8 @@ const Routes = () => {
       {/* http://localhost:8000/api/admin/adminId/product/createproduct/storeId */}
       <Route  path="/admin/:adminId/product/allproduct/:storeId" exact component={AllProduct} />
       <Route  path="/admin/:adminId/product/updateproduct/:productId" exact component={UpdataProduct} />
+
+      <Route  path="/admin/:adminId/createCategory" exact component={CreateCategory} />
 
 
       {/* /admin/adminId/product/createproduct/storeId */}

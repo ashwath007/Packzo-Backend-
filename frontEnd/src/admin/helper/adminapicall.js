@@ -172,3 +172,17 @@ export const deleteStoreHere = (adminId, storeId) => {
         })
         .catch(err => console.log(err));
 }
+
+
+export const getAllProducts = (storeId) => {
+    return fetch(`${API}/admin/store/${storeId}/allproducts`, {
+            method: "GET",
+            headers: {
+                Accept: "application/json",
+            },
+        })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+}

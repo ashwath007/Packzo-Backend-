@@ -54,6 +54,8 @@ import CreateProduct from './admin/CreateProduct';
 import UpdataProduct from './admin/UpdateProduct';
 
 import AllStore from './admin/AllStore';
+import AllProduct from './admin/AllProducts';
+
 import StoreOption from "./admin/StoreOption";
 
 
@@ -75,8 +77,9 @@ const Routes = () => {
       <Route  path="/admin/packzo/AllStore" exact component={AllStore} />
       <Route  path="/admin/:adminId/product/createingproduct/:storeId" exact component={CreateProduct} />
       {/* http://localhost:8000/api/admin/adminId/product/createproduct/storeId */}
+      <Route  path="/admin/:adminId/product/allproduct/:storeId" exact component={AllProduct} />
       <Route  path="/admin/:adminId/product/updateproduct/:productId" exact component={UpdataProduct} />
-     
+
 
       {/* /admin/adminId/product/createproduct/storeId */}
       <Route  path="/admin/:adminId/store/option/:storeId" exact component={StoreOption} />

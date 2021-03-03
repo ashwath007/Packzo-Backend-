@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getProduct,getAllProducts } from "./helper/adminapicall";
+import { getProduct,getAllProducts,deleteThisProductFromStore } from "./helper/adminapicall";
 import adminlogo from "./helper/packzo_logo.png"
 
 export default function AllProducts({match}) {
@@ -44,12 +44,12 @@ export default function AllProducts({match}) {
 
 
 
-        deleteThisProductFromStore(productId).then(data=>{
+        deleteThisProductFromStore(match.params.adminId,productId).then(data=>{
             if(data.error){
-
+                console.log(data.error)
             }
             else{
-                
+                preLoad(match.params.storeId)
             }
         })
     }

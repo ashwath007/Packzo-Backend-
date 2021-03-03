@@ -244,7 +244,7 @@ export const updateCategory = (ID, cateId, values) => {
 }
 
 
-export const deleteThisProduct = (adminId, productId) => {
+export const deleteThisProductFromStore = (adminId, productId) => {
     return fetch(`${API}/admin/${adminId}/product/deleteProducts/${productId}`, {
             //http://localhost:8000/api/admin/:adminId/category/cateId/edit
             method: "DELETE",

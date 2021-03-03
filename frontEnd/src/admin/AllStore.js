@@ -93,7 +93,7 @@ export default function AllStore() {
     <h5 className="card-title">{i.name}</h5>
     <h6 className="card-subtitle mb-2 text-muted">{i.stype}</h6>
     <p className="card-text">{i.description}</p>
-    <a href={`/admin/${adminID}/store/option/${i._id}`} className="card-link">Store Option</a> 
+    <a href={`/admin/${adminID}/store/option/${i._id}`} className="card-link p-3 mb-2 bg-light text-dark">Store Option</a> 
       <br/>
    
 </div>

@@ -32,3 +32,16 @@
 .cen {
     text-align: center;
 }
+
+.ojoj {
+    margin: 0 auto;
+    /* Added */
+    float: none;
+    /* Added */
+    margin-bottom: 10px;
+    /* Added */
+}
+
+.card {
+    background-color: #007bff!important;
+}

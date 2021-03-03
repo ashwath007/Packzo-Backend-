@@ -58,6 +58,7 @@ import AllProduct from './admin/AllProducts';
 
 import StoreOption from "./admin/StoreOption";
 import CreateCategory from "./admin/CreateCategory";
+import AllCategory from "./admin/AllCategory";
 
 
 
@@ -81,7 +82,7 @@ const Routes = () => {
       <Route  path="/admin/:adminId/product/updateproduct/:productId" exact component={UpdataProduct} />
 
       <Route  path="/admin/:adminId/createCategory" exact component={CreateCategory} />
-      <Route  path="/admin/:adminId/createCategory" exact component={AllCategory} />
+      <Route  path="/admin/:adminId/allCategory" exact component={AllCategory} />
 
 
 

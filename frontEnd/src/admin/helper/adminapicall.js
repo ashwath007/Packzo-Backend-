@@ -18,7 +18,7 @@ export const createCategory = (category, adminId) => {
 
 //get all categories
 export const getCategories = () => {
-    return fetch(`${API}/admin/product/getcategoryProducts`, {
+    return fetch(`${API}/admin/category/getallcategory`, {
             method: "GET"
         })
         .then(response => {
@@ -226,13 +226,16 @@ export const getaCategory = (adminId, cateId) => {
 }
 
 export const updateCategory = (ID, cateId, values) => {
+    console.log(values)
     return fetch(`${API}/admin/${ID}/category/${cateId}/edit`, {
             //http://localhost:8000/api/admin/:adminId/category/cateId/edit
             method: "PUT",
             headers: {
                 Accept: "application/json",
-                body: values
+                "Content-Type": "application/json",
             },
+            body: JSON.stringify(values)
+
         })
         .then(response => {
             return response.json();

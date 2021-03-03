@@ -17,7 +17,7 @@ exports.createCategory = (req, res) => {
 exports.updateCategory = (req, res) => {
     console.log("Update category");
     const categoryId = req.params.categoryId;
-    console.log(categoryId);
+    console.log(req.body);
     Category.findById(categoryId, (err, got) => {
         if (err) {
             return res.status(400).json({
@@ -33,7 +33,7 @@ exports.updateCategory = (req, res) => {
                     error: err
                 });
             }
-            console.log(tt)
+            return res.json(tt)
         })
     })
 }

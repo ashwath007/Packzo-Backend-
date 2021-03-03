@@ -8,11 +8,12 @@ export default function EditCategory({match}) {
     const [values, setvalues] = useState({
         updatedCategoryStatus:"",
         name:"Category",
+        description:"",
         error:"",
         success:false,
         cateID:""
     })
-    const {updatedCategoryStatus,name,error,success,cateID} = values;
+    const {updatedCategoryStatus,name,error,success,cateID,description} = values;
     const onHandle = name => event => {
         setvalues({...values,[name]:event.target.value})
   }
@@ -27,7 +28,7 @@ export default function EditCategory({match}) {
         } else {
           
             console.log("++",data.data.name);
-            setvalues({...values,name:data.data.name,cateID:data.data.name._id,updatedCategoryStatus:data.data})
+            setvalues({...values,name:data.data.name,cateID:data.data.name._id,description:data.data.description,updatedCategoryStatus:data.data})
         }
       });
 
@@ -83,6 +84,10 @@ const successMessage = () => (
 <div class="form-group">
     <label >Edit Category {name}</label>
 <input onChange={onHandle("name")} type="text" name="name" value={name} class="form-control" id="exampleFormControlInput1" placeholder="Eg Indian,Chinese"/>
+</div>
+<div class="form-group">
+    <label >Edit description: {description}</label>
+<input onChange={onHandle("description")} type="text" name="name" value={description} class="form-control" id="exampleFormControlInput1" placeholder="Eg Indian,Chinese"/>
 </div>
 <button onClick={onUpdate} className="btn btn-info btn-block rounded cen">
 Create

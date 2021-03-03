@@ -1,5 +1,5 @@
 const express = require('express');
-const { createProduct, getallProduct, updateProduct, getProductById, deleteProduct, getAllUniqueCategories, getAllproducts, photo, getProduct, getaproductfromstore } = require('../controllers/product');
+const { createProduct, getallProduct, updateProduct, getProductById, deleteProduct, getproductfromstore, getAllUniqueCategories, getAllproducts, photo, getProduct, getaproductfromstore } = require('../controllers/product');
 const router = express.Router();
 const { isAuthenticated } = require('../controllers/auth');
 
@@ -20,6 +20,9 @@ router.get("/product/:productId", getProduct);
 router.get("/product/photo/:productId", photo);
 
 router.get("/admin/category/getaproduct/:productId", getaproductfromstore);
+
+router.get("/admin/store/:storeId/allproducts", getproductfromstore);
+
 
 
 ///api/admin/category/getallproduct

@@ -215,3 +215,20 @@ exports.getaproductfromstore = (req, res) => {
         }
     })
 }
+
+
+exports.getproductfromstore = (req, res) => {
+    const storeId = req.params.storeId;
+    Store.findById({ _id: storeId }, (err, done) => {
+        if (err) {
+            return res.status(404).json({
+                error: err
+            })
+        } else {
+            console.log(done)
+            return res.json({
+                data: done
+            })
+        }
+    })
+}

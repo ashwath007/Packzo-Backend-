@@ -18,30 +18,24 @@ exports.updateCategory = (req, res) => {
     console.log("Update category");
     const categoryId = req.params.categoryId;
     console.log(categoryId);
-    Category.findByIdAndUpdate(req.params.categoryId, req.body, (err, docs) => {
+    Category.findById(categoryId, (err, got) => {
         if (err) {
             return res.status(400).json({
-                err: "counld't finnf the ID"
-            })
+                error: "NOT able to edit Category"
+            });
         }
-        if (docs == null) {
-            return res.status(400).json({
-                err: "counld't find the Category"
-            })
-        }
-        docs.name = req.body.name;
-        docs.description = req.body.description;
-        docs.save((err, done) => {
+        console.log(got)
+        got.name = req.body.name;
+        got.description = req.body.description;
+        got.save((err, tt) => {
             if (err) {
                 return res.status(400).json({
-                    err: "counld't save the category"
-                })
+                    error: err
+                });
             }
-            return res.status(400).json({
-                msg: done
-            })
-        });
-    });
+            console.log(tt)
+        })
+    })
 }
 
 

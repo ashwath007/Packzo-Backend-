@@ -57,7 +57,7 @@ exports.createProduct = (req, res) => {
         }
         //destructure the fields
         const { name, description, price, category, stock } = fields;
-        if (!name || !description || !price || !category || !stock) {
+        if (!name || !description || !price || !stock) {
             return res.status(400).json({
                 error: "Please include all fields"
             });
@@ -84,6 +84,7 @@ exports.createProduct = (req, res) => {
                 });
             }
             console.log(req.params.storeId);
+            console.log(product)
             product.store = req.params.storeId;
             product.save((err, hoho) => {
                 if (err) {
@@ -228,21 +229,22 @@ exports.getaproductfromstore = (req, res) => {
 
 
 exports.getproductfromstore = (req, res) => {
-    const storeId = req.params.storeId;
+    let limit = req.query.limit ? parseInt(req.query.limit) : 8;
+    let sortBy = req.query.sortBy ? req.query.sortBy : "_id";
 
-    const pushData = () => {
-        return p_data
-    }
-    Product.find({ store: storeId }, (err, gotit) => {
-        if (err) {
-            return res.status(404).json({
-                error: err
-            })
-        } else {
-            console.log(gotit)
-            return res.json({
-                data: gotit
-            })
-        }
-    })
+    Product.find()
+        .select("-photo")
+        .populate("category")
+        .sort([
+            [sortBy, "asc"]
+        ])
+        .limit(limit)
+        .exec((err, products) => {
+            if (err) {
+                return res.status(400).json({
+                    error: "NO product FOUND"
+                });
+            }
+            res.json(products);
+        });
 }

@@ -26,8 +26,8 @@ export default function EditCategory({match}) {
           console.log(data.error);
         } else {
           
-            console.log("++",data);
-            setvalues({...values,name:data.name,cateID:data._id,updatedCategoryStatus:data})
+            console.log("++",data.data.name);
+            setvalues({...values,name:data.data.name,cateID:data.data.name._id,updatedCategoryStatus:data.data})
         }
       });
 

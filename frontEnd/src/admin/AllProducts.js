@@ -13,7 +13,7 @@ export default function AllProducts({match}) {
 
             }
             else{
-                console.log("Data:",data)
+                console.log("Data:",data.data)
 
                 setProducts(data.data)
             }
@@ -43,6 +43,7 @@ export default function AllProducts({match}) {
     return (
        <div>
  <div className="container">
+        <h3>All Products</h3>
                 <p>{products}</p>
                 
                         

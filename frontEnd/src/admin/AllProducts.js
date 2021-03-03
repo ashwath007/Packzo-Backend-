@@ -62,7 +62,7 @@ export default function AllProducts({match}) {
                     <div className="card mb-4 shadow rounded" key={i}>
   <div className="card-body">   
     <h5 className="card-title">{i.name}</h5>
-  <Link to={`/admin/${match.params.adminId}/editCategory/${i._id}`}>
+  <Link to={`/admin/${match.params.adminId}/product/updateproduct/${i._id}`}>
     <button className="btn btn-success rounded">Edit</button>
 
   </Link>

@@ -72,3 +72,16 @@ exports.getallCategory = (req, res) => {
         })
     })
 }
+
+exports.aCategory = (req, res) => {
+    Category.findById({ _id: req.params.cateId }, (err, ok) => {
+        if (err) {
+            return res.status(400).json({
+                err: "error category"
+            })
+        }
+        return res.json({
+            data: ok
+        })
+    })
+}

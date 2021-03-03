@@ -211,3 +211,31 @@ export const deleteCategory = (adminId, cateId) => {
         })
         .catch(err => console.log(err));
 }
+
+export const getaCategory = (adminId, cateId) => {
+    return fetch(`${API}/admin/${adminId}/category/${cateId}/acategory`, {
+            method: "GET",
+            headers: {
+                Accept: "application/json",
+            },
+        })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+}
+
+export const updateCategory = (ID, cateId, values) => {
+    return fetch(`${API}/admin/${ID}/category/${cateId}/edit`, {
+            //http://localhost:8000/api/admin/:adminId/category/cateId/edit
+            method: "PUT",
+            headers: {
+                Accept: "application/json",
+                body: values
+            },
+        })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+}

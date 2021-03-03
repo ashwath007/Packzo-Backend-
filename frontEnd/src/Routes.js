@@ -85,7 +85,7 @@ const Routes = () => {
 
       <Route  path="/admin/:adminId/createCategory" exact component={CreateCategory} />
       <Route  path="/admin/:adminId/allCategory" exact component={AllCategory} />
-      <Route  path="/admin/:adminId/editCategory" exact component={EditCategory} />
+      <Route  path="/admin/:adminId/editCategory/:cateId" exact component={EditCategory} />
 
 
 

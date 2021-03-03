@@ -1,5 +1,5 @@
 const express = require('express');
-const { createCategory, updateCategory, deleteCategory, getallCategory } = require('../controllers/category');
+const { createCategory, updateCategory, deleteCategory, getallCategory, aCategory } = require('../controllers/category');
 const { isAuthenticated } = require('../controllers/auth');
 
 const router = express.Router();
@@ -17,6 +17,8 @@ router.put(
     isAuthenticated,
     updateCategory
 );
+router.get('/admin/:adminId/category/:cateId/acategory', isAuthenticated, aCategory);
+
 //Delete category
 router.delete(
     "/admin/:adminId/category/:categoryId/delete",

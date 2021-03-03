@@ -185,3 +185,29 @@ export const getAllProducts = (storeId) => {
         })
         .catch(err => console.log(err));
 }
+
+export const getallCategory = () => {
+        return fetch(`${API}/admin/category/getallcategory`, {
+                method: "GET",
+                headers: {
+                    Accept: "application/json",
+                },
+            })
+            .then(response => {
+                return response.json();
+            })
+            .catch(err => console.log(err));
+    }
+    //http://localhost:8000/api/admin/:adminId/category/cateId/delete
+export const deleteCategory = (adminId, cateId) => {
+    return fetch(`${API}/admin/${adminId}/category/${cateId}/delete`, {
+            method: "DELETE",
+            headers: {
+                Accept: "application/json",
+            },
+        })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+}

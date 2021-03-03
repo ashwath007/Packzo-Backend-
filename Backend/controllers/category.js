@@ -66,6 +66,7 @@ exports.getallCategory = (req, res) => {
                 err: "error category"
             })
         }
+        console.log(done)
         return res.status(400).json({
             categories: done
         })

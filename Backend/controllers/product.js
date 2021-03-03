@@ -84,26 +84,36 @@ exports.createProduct = (req, res) => {
                 });
             }
             console.log(req.params.storeId);
-            Store.findById({ _id: req.params.storeId }, (err, done) => {
+            product.store = req.params.storeId;
+            product.save((err, hoho) => {
                 if (err) {
                     return res.status(400).json({
                         error: "Store not found"
                     });
                 }
-                console.log(done);
-                done.product.push(product._id);
-                done.save((er, ok) => {
+                Store.findById({ _id: req.params.storeId }, (err, done) => {
                     if (err) {
-                        res.status(400).json({
-                            error: er
+                        return res.status(400).json({
+                            error: "Store not found"
                         });
                     }
-                    return res.json({
-                        products: product,
-                        stores: ok
-                    })
-                });
+                    console.log(done);
+                    done.product.push(product._id);
+
+                    done.save((er, ok) => {
+                        if (err) {
+                            res.status(400).json({
+                                error: er
+                            });
+                        }
+                        return res.json({
+                            products: product,
+                            stores: ok
+                        })
+                    });
+                })
             })
+
         });
     });
 }
@@ -219,16 +229,36 @@ exports.getaproductfromstore = (req, res) => {
 
 exports.getproductfromstore = (req, res) => {
     const storeId = req.params.storeId;
+    p_name = [];
+    p_data = [];
+
+    p_desc = [];
+    p_id = [];
+    const pushData = () => {
+        return p_data
+    }
     Store.findById({ _id: storeId }, (err, done) => {
         if (err) {
             return res.status(404).json({
                 error: err
             })
         } else {
-            console.log(done)
-            return res.json({
-                data: done
-            })
+
+            done.product.map((i) => {
+                    Product.findById({ _id: i }, (err, pro) => {
+                        if (err) {
+                            return res.status(404).json({
+                                error: err
+                            })
+                        }
+                        p_data.push(pro)
+                    })
+                })
+                // const all = pushData();
+                // return res.json({
+                //     data: all
+                // })
+
         }
     })
 }

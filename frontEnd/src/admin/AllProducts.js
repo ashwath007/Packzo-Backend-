@@ -13,9 +13,9 @@ export default function AllProducts({match}) {
 
             }
             else{
-                console.log("Data:",data.data)
+                console.log("Data:",data)
 
-                setProducts(data.data)
+                setProducts(data)
             }
         })
     }
@@ -39,12 +39,42 @@ export default function AllProducts({match}) {
     useEffect(() => {
         preLoad(match.params.storeId)
     }, [])
+    const deleteThisProduct = (productId) => {
+    //http://localhost:8000/api/admin/${adminId}/product/deleteProducts/${productId}
 
+
+
+        deleteThisProductFromStore(productId).then(data=>{
+            if(data.error){
+
+            }
+            else{
+                
+            }
+        })
+    }
     return (
        <div>
  <div className="container">
         <h3>All Products</h3>
-                <p>{products}</p>
+        {products.map((i,cat)=>{
+                return(
+                    <div className="card mb-4 shadow rounded" key={i}>
+  <div className="card-body">   
+    <h5 className="card-title">{i.name}</h5>
+  <Link to={`/admin/${match.params.adminId}/editCategory/${i._id}`}>
+    <button className="btn btn-success rounded">Edit</button>
+
+  </Link>
+
+    <button onClick={()=>{deleteThisProduct(i._id)}} className="btn btn-danger rounded ml-4">Delete</button>
+
+
+
+  </div>
+</div>
+                )
+            })}
                 
                         
     

@@ -242,3 +242,20 @@ export const updateCategory = (ID, cateId, values) => {
         })
         .catch(err => console.log(err));
 }
+
+
+export const deleteThisProduct = (adminId, productId) => {
+    return fetch(`${API}/admin/${adminId}/product/deleteProducts/${productId}`, {
+            //http://localhost:8000/api/admin/:adminId/category/cateId/edit
+            method: "DELETE",
+            headers: {
+                Accept: "application/json",
+            },
+
+
+        })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+}

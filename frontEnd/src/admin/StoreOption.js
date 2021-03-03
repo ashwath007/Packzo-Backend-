@@ -79,7 +79,7 @@ export default function StoreOption({match}) {
 </div>
 <div className="menucenter">
 <main role="main" class="container">
-        <div className="mt-3">
+        <div className="mt-3 text-white">
             {showStore()}
         </div>
   <form className="mt-5">
@@ -110,7 +110,7 @@ export default function StoreOption({match}) {
       <div class="media text-muted pt-3"> 
         <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
         <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray text-white">
-          <strong class="d-block text-gray-dark text-white">Tax and Price</strong>
+          <strong class="d-block text-gray-dark text-white">The Admin</strong>
           Here you can add the new menu items
         </p>
         {/* http://localhost:8000/api/admin/adminId/product/createproduct/storeId */}

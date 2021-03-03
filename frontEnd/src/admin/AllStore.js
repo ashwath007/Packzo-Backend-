@@ -104,7 +104,7 @@ const pdata = 'iVBORw0KGgoAAAANSUhEUgAAAFgAAABSCAYAAADQDhNSAAAABHNCSVQICAgIfAhki
     <a href={`/admin/${adminID}/store/option/${i._id}`} className="card-link">Store Option</a> 
     {/* <a href={`/admin/${adminID}/store/deletestore/${i._id}`} className="card-link">Store Delete</a> */}
       <br/>
-      <button className="btn btn-warning" onPress={deleteStore(adminID,i._id)}>Delete Store</button>
+      {/* <button className="btn btn-warning" onPress={deleteStore(adminID,i._id)}>Delete Store</button> */}
     {/* /admin/:adminId/store/deletestore/:storeId */}
   </div>    
 </div>

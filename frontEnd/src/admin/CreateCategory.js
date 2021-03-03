@@ -37,7 +37,7 @@ export default function CreateCategory({match}) {
             
             return (
               <div className="container">
-               <Link to="/admin/shaji/dashboard/menu">
+               <Link to="/admin/packzo/AllStore">
                <button className="btn btn-warning btn-block rounded">
                   Menu
                 </button></Link> 

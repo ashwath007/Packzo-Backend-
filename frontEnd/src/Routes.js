@@ -81,6 +81,8 @@ const Routes = () => {
       <Route  path="/admin/:adminId/product/updateproduct/:productId" exact component={UpdataProduct} />
 
       <Route  path="/admin/:adminId/createCategory" exact component={CreateCategory} />
+      <Route  path="/admin/:adminId/createCategory" exact component={AllCategory} />
+
 
 
       {/* /admin/adminId/product/createproduct/storeId */}

@@ -93,6 +93,7 @@ exports.editStore = (req, res) => {
 
 exports.deleteStore = (req, res) => {
     console.log(req.params.adminId);
+    console.log("Here Deleting Store");
     console.log(req.params.storeId);
     Store.findById(req.params.storeId, (err, done) => {
         if (err) {

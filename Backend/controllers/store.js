@@ -51,43 +51,31 @@ exports.createStore = (req, res) => {
 
 exports.editStore = (req, res) => {
     console.log(req.params.storeId);
-    let form = new formidable.IncomingForm();
-    form.keepExtensions = true;
-    form.parse(req, (err, fields, file) => {
+    Store.findById({ _id: req.params.storeId }, (err, done) => {
         if (err) {
-            return res.status(400).json({
-                error: "problem with image"
-            });
+            return res.status(404).json({
+                error: data.error
+            })
+        } else {
+            done.name = req.body.name;
+            done.decription = req.body.decription;
+            done.location = req.body.location;
+            done.stype = req.body.stype;
+            done.save((err, okok) => {
+                if (err) {
+                    return res.status(404).json({
+                        error: okok.error
+                    })
+                }
+                return res.json({
+                    data: okok
+                })
+            })
+
+
+
         }
-
-        //updation code
-        let product = req.product;
-        console.log(product);
-        product = _.extend(product, fields);
-
-        //handle file here
-        if (file.photo) {
-            if (file.photo.size > 3000000) {
-                return res.status(400).json({
-                    error: "File size too big!"
-                });
-            }
-            product.photo.data = fs.readFileSync(file.photo.path);
-            product.photo.contentType = file.photo.type;
-        }
-        // console.log(product);
-
-        //save to the DB
-        product.save((err, product) => {
-            if (err) {
-                res.status(400).json({
-                    error: "Updation of product failed"
-                });
-            }
-            res.json(product);
-        });
-    });
-
+    })
 
 }
 

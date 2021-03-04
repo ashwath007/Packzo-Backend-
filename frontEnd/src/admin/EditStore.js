@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import { Link } from "react-router-dom";
-import { loadStoreData } from './helper/adminapicall';
+import { loadStoreData, updateStore } from './helper/adminapicall';
 import adminlogo from "./helper/packzo_logo.png"
 
 
@@ -131,12 +131,12 @@ export default function EditStore({match}) {
     const onSubmit = event => {
         event.preventDefault();
         setValues({ ...values, error: "", loading: true });
-        updateStore(match.params.storeId,match.params.adminId, formData).then(data => {
+        updateStore(match.params.storeId,match.params.adminId, values).then(data => {
             if(data.error){
-
-            }
+                console.log(data.error)
+            }   
             else{
-
+                console.log(data)
             }
         })
         

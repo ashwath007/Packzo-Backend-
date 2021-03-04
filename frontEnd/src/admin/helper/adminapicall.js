@@ -275,3 +275,21 @@ export const loadStoreData = (storeId) => {
         })
         .catch(err => console.log(err));
 }
+
+export const updateStore = (storeId, adminId, data) => {
+    console.log(data)
+    return fetch(`${API}/admin/${adminId}/store/editstore/${storeId}`, {
+            //http://localhost:8000/api/admin/:adminId/category/cateId/edit
+            method: "PUT",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data)
+
+        })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+}

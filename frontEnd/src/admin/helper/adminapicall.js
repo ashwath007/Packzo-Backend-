@@ -259,3 +259,19 @@ export const deleteThisProductFromStore = (adminId, productId) => {
         })
         .catch(err => console.log(err));
 }
+
+export const loadStoreData = (storeId) => {
+    return fetch(`${API}/admin/getStoreInfo/${storeId}`, {
+            //http://localhost:8000/api/admin/:adminId/category/cateId/edit
+            method: "GET",
+            headers: {
+                Accept: "application/json",
+            },
+
+
+        })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+}

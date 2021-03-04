@@ -59,7 +59,7 @@ export default function AllProducts({match}) {
         <h3>All Products</h3>
         {products.map((i,cat)=>{
                 return(
-                    <div className="card mb-4 shadow rounded" key={i}>
+                    <div className="card mb-4 shadow rounded text-white" key={i}>
   <div className="card-body">   
     <h5 className="card-title">{i.name}</h5>
   <Link to={`/admin/${match.params.adminId}/product/updateproduct/${i._id}`}>
